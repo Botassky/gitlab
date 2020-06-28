@@ -2,7 +2,7 @@
 
 GitLab CE のインストール
 ==================================================
-「 `GitLab.JP: GitLab日本語情報サイト <https://www.gitlab.jp/>`_ 」の「 `セルフマネージドGitLabをインストール <https://www.gitlab.jp/install/?version=ce#centos-8>`_ 」を参考に以下の内容の Vagrantfile を作成し GitLab CE をインストールします。
+「 `GitLab.JP: GitLab日本語情報サイト <https://www.gitlab.jp/>`_ 」の「 `セルフマネージドGitLabをインストール <https://www.gitlab.jp/install/?version=ce#centos-8>`_ 」を参考に以下の内容の Vagrantfile を作成しました。これを使用して GitLab CE をインストールします。
 
 .. code-block:: none
 
