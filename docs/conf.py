@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'GitLab'
+project = 'GitLab Community Edition'
 copyright = '2020, Youichi Muraoka'
 author = 'Youichi Muraoka'
 

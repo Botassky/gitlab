@@ -1,0 +1,32 @@
+.. _user-no-sakusei-user-ga-sakusei:
+
+ユーザー自身が作成
+==================================================
+ユーザーが自身のユーザーアカウントを作成します。登録情報は以下のとおりです。
+
+#. ブラウザーで GitLab サーバーにアクセス　→　:guilabel:`Register` をクリック
+
+   .. image:: ./img/2020-06-28_21h29_21.png
+
+   |
+
+#. 各値を入力　→　:guilabel:`Register` をクリック
+
+   .. csv-table::
+
+      "項目", "値"
+      "Full name", "サンプル　太郎"
+      "Username", "taro"
+      "Email", "taro@email.local"
+      "Email confirmation", "taro@email.local"
+      "Password", "taro@password"
+
+   .. image:: ./img/2020-06-28_21h32_18.png
+
+   |
+
+#. アカウントの作成終了
+
+   .. image:: ./img/2020-06-28_21h32_36.png
+
+   |

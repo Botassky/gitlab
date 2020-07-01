@@ -1,0 +1,55 @@
+.. _user-no-sakusei-kanrisya-ga-sakusei:
+
+管理者（ root ）が作成
+==================================================
+管理者がユーザーアカウントを作成します。登録情報は以下のとおりです。
+
+#. :guilabel:`Add people` をクリック
+
+   .. image:: ./img/2020-07-01_21h20_41.png
+
+   |
+
+#. 各値を入力　→　:guilabel:`Create user` をクリック
+
+   .. csv-table::
+   
+      "項目", "値"
+      "Name", "サンプル　花子"
+      "Username", "hanako"
+      "Email", "hanako@email.local"
+
+   .. image:: ./img/2020-07-01_21h21_15.png
+
+   |
+
+#. :guilabel:`Edit` をクリック
+
+   .. image:: img/2020-07-01_21h21_24.png
+
+   |
+
+#. 各値を入力　→　:guilabel:`Save changes` をクリック
+
+   .. csv-table::
+   
+      "項目", "値"
+      "Password", "hanako@password"
+      "Password confirmation", "hanako@password"
+
+   .. image:: ./img/2020-07-01_21h22_00.png
+
+   |
+
+   .. note::
+
+      ここで設定したパスワードは仮パスワードです。初めて hanako アカウントでログインするとき、パスワードを変更するよう求められます。
+
+   |
+
+#. アカウントの作成終了
+
+   .. image:: ./img/2020-07-01_21h22_16.png
+
+   |
+
