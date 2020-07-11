@@ -7,11 +7,6 @@ Git クライアント
 
 ----
 
-.. _git-client-sourcetree:
-
-SourceTree
-==================================================
-
 #. " https://www.sourcetreeapp.com/ " を開く
 
    .. image:: ./img/2020-07-11_11h24_11.png
