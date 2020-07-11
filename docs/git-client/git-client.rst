@@ -5,6 +5,8 @@ Git クライアント
 **************************************************
 クライアント PC に Git クライアントをインストールし、GitLab を操作します。今回は `SourceTree <https://www.sourcetreeapp.com/>`_ を使用します。
 
+----
+
 .. _git-client-sourcetree:
 
 SourceTree
