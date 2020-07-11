@@ -2,31 +2,50 @@
 
 ユーザー自身が作成
 ==================================================
-ユーザーが自身のユーザーアカウントを作成します。登録情報は以下のとおりです。
 
 #. ブラウザーで GitLab サーバーにアクセス　→　:guilabel:`Register` をクリック
 
-   .. image:: ./img/2020-06-28_21h29_21.png
+   .. image:: ./img/2020-07-05_17h34_58.png
+      :scale: 65%
 
    |
 
 #. 各値を入力　→　:guilabel:`Register` をクリック
 
-   .. csv-table::
+   次の内容でアカウントを作成します。 :guilabel:`Username` の入力後に緑色で "Username is available." が表示されたら使用可能なユーザー名です。
 
-      "項目", "値"
-      "Full name", "サンプル　太郎"
-      "Username", "taro"
-      "Email", "taro@email.local"
-      "Email confirmation", "taro@email.local"
-      "Password", "taro@password"
+   .. list-table::
+      :widths: 1, 1, 2
 
-   .. image:: ./img/2020-06-28_21h32_18.png
+      * - 項目
+        - 入力値
+        - 備考
+      * - Full name
+        - staff taro
+        - ユーザーのフルネーム
+      * - Username
+        - taro
+        - ログインアカウント
+      * - Email
+        - taro@email.local
+        - 
+      * - Email confirmation
+        - taro@email.local
+        - "Email" と同じ値
+      * - Password
+        - taro@password
+        - アカウントのパスワード
+
+   .. image:: ./img/2020-07-05_17h37_44.png
+      :scale: 65%
 
    |
 
 #. アカウントの作成終了
 
-   .. image:: ./img/2020-06-28_21h32_36.png
+   :guilabel:`Register` のクリック後にユーザーアカウントが作成され、そのままサインインします。
+
+   .. image:: ./img/2020-07-05_17h38_00.png
+      :scale: 65%
 
    |

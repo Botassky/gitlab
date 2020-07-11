@@ -3,18 +3,23 @@
 **************************************************
 環境構築
 **************************************************
-| ● :ref:`kankyo-kochiku-gitlab-ce-no-install`
-| ● :ref:`kankyo-kochiku-gitlab-ce-no-dousa-kakunin`
-| ● :ref:`kankyo-kochiku-gitlab-ce-no-root-password-no-henko`
+| ● :ref:`kankyo-kochiku-install`
+| ● :ref:`kankyo-kochiku-kekka-kakunin`
+| ● :ref:`kankyo-kochiku-root-password-no-henko`
+| ● :ref:`kankyo-kochiku-signin-test`
 
-.. include:: ./kankyo-kochiku-gitlab-ce-no-install.txt
-
-|
-
-.. include:: ./kankyo-kochiku-gitlab-ce-no-dousa-kakunin.txt
+.. include:: ./kankyo-kochiku-install.txt
 
 |
 
-.. include:: ./kankyo-kochiku-gitlab-ce-no-root-password-no-henko.txt
+.. include:: ./kankyo-kochiku-kekka-kakunin.txt
+
+|
+
+.. include:: ./kankyo-kochiku-root-password-no-henko.txt
+
+|
+
+.. include:: ./kankyo-kochiku-signin-test.txt
 
 |

@@ -1,0 +1,74 @@
+.. _group-no-sakusei-group-no-sakusei:
+
+グループの作成
+==================================================
+
+#. GitLab サーバーにアカウント taro でログイン
+
+   .. image:: ./img/2020-07-05_18h29_56.png
+      :scale: 65%
+
+   |
+
+#. :guilabel:`Create a group` をクリック
+
+   .. image:: ./img/2020-07-05_18h30_10.png
+      :scale: 65%
+
+   |
+
+#. 次の値を入力　→　:guilabel:`Create group` をクリック
+
+   .. list-table::
+      :widths: 1, 1, 2
+
+      * - 項目
+        - 入力値／選択値
+        - 備考
+      * - Group name
+        - staff
+        - グループ名
+      * - Group URL
+        - staff
+        - "Group name" の値が自動的に入ります
+      * - Group description (optional)
+        - staff group
+        - グループの説明
+      * - Visibility level
+        - Internal
+        - :ref:`group-no-sakusei-Visibility-level` を参照
+
+   .. image:: ./img/2020-07-05_18h32_06.png
+      :scale: 65%
+
+   |
+
+   .. image:: ./img/2020-07-05_18h32_16.png
+      :scale: 65%
+
+
+   |
+
+#. "Group 'staff' was successfully created." のメッセージを確認　→　グループの作成終了
+
+   .. image:: ./img/2020-07-05_18h33_39.png
+      :scale: 65%
+
+   |
+
+.. _group-no-sakusei-Visibility-level:
+
+Visibility level
+--------------------------------------------------
+グループ自体やグループに属するプロジェクトの公開レベルを設定します。
+
+Private
+   グループのメンバーだけに公開されます。
+
+Internal
+   GitLab サーバーにログインしているユーザーに公開されます。
+
+Public
+   誰にでも公開されます。
+
+|

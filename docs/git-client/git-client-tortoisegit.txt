@@ -1,0 +1,94 @@
+.. _git-client-tortoisegit:
+
+TortoiseGit
+--------------------------------------------------
+
+#. " https://tortoisegit.org/ " を開く
+
+   .. image:: ./img/2020-07-07_19h30_26.png
+
+   |
+
+#. :guilabel:`Download` をクリック
+
+   .. image:: ./img/2020-07-07_19h31_34.png
+
+   |
+
+#. "for 64-bit Windows" のほうをクリック
+
+   .. image:: ./img/2020-07-07_19h32_25.png
+
+   |
+
+#. Languagge Pack の "Japanese" をクリック
+
+   .. image:: ./img/2020-07-07_19h32_57.png
+
+   |
+
+#. ダウンロードした :file:`TortoiseGit-2.10.0.2-64bit.msi` を実行
+
+   .. image:: ./img/2020-07-07_19h40_23.png
+
+   |
+
+#. :guilabel:`Next` をクリック
+
+   .. image:: ./img/2020-07-07_19h35_23.png
+
+   |
+
+#. :guilabel:`Next` をクリック
+
+   .. image:: ./img/2020-07-07_19h35_43.png
+
+   |
+
+#. :guilabel:`Next` をクリック
+
+   .. image:: ./img/2020-07-07_19h36_23.png
+
+   |
+
+#. :guilabel:`Next` をクリック
+
+   .. image:: ./img/2020-07-07_19h36_42.png
+
+   |
+
+#. :guilabel:`Install` をクリック
+
+   .. image:: ./img/2020-07-07_19h37_23.png
+
+   |
+
+#. インストール中
+
+   .. image:: ./img/2020-07-07_19h37_52.png
+
+   |
+
+#. :guilabel:`Run first start wizard` のチェックを外す　→　:guilabel:`Finish` をクリック
+
+   .. image:: ./img/2020-07-07_19h39_09.png
+
+   |
+
+#. :file:`TortoiseGit-LanguagePack-2.10.0.0-64bit-ja.msi` を実行
+
+   .. image:: ./img/2020-07-07_19h40_07.png
+
+   |
+
+#. :guilabel:`次へ(N)` をクリック　→　インストールを実行
+
+   .. image:: ./img/2020-07-07_19h41_01.png
+
+   |
+
+#. :guilabel:`完了(F)` をクリック
+
+   .. image:: ./img/2020-07-07_19h41_48.png
+
+   |
