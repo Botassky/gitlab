@@ -95,3 +95,4 @@ dw_php_codehinting.config
 # Sphinx.gitignore
 # --------------------------------------
 docs/_build/
+bkup/

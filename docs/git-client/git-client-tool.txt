@@ -1,9 +1,0 @@
-.. _git-client-tool:
-
-Git クライアントツール
-==================================================
-次の Git クライアントツールを使用します。
-
-- :ref:`git-client-sourcetree` ( https://www.sourcetreeapp.com/ )
-
-.. include:: ./git-client-sourcetree.txt
