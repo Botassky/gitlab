@@ -1,0 +1,176 @@
+.. _commit-cherrypick:
+
+チェリーピック（他のブランチのコミットを取り込む）
+==================================================
+他のブランチのコミットを現在のブランチに取り込みます。チェリーピック後も取込み元のコミットはそのままです。今回は ``master`` ブランチのコミットを ``edit`` ブランチに取り込みます。
+
+.. _commit-cherrypick-no-conflict:
+
+コンフリクトなし
+--------------------------------------------------
+
+#. 編集対象が ``edit`` ブランチであることを確認
+
+   .. image:: ./img/2020-08-12_18h14_50.png
+      :scale: 65%
+
+   |
+
+#. ``master`` ブランチから取り込むコミットを右クリック　→　:guilabel:`チェリーピック` をクリック
+
+   .. image:: ./img/2020-08-12_18h15_41.png
+      :scale: 65%
+
+   |
+
+#. :guilabel:`OK` をクリック
+
+   .. image:: ./img/2020-08-12_18h16_27.png
+      :scale: 65%
+
+   |
+
+   【英文　→　和訳】
+
+   - Cherry picking lets you select a commit and apply only those changes to your current branch.
+
+      チェリーピッキングでは、コミットを選択して現在のブランチに変更点のみを適用することができます。
+
+   - Commit immediately upon successful merge.
+
+      マージに成功したらすぐにコミットします。
+
+   - Include commit IDs in the merge commit message.
+
+      マージコミットメッセージにコミット ID を含めます。
+
+   |
+
+#. チェリーピック終了
+
+    ``master`` ブランチのコミットの取込みが終了しました。コミットメッセージは ``master`` ブランチの値をそのまま使用しています。
+
+   .. image:: ./img/2020-08-12_18h26_05.png
+      :scale: 65%
+
+   |
+
+.. _commit-cherrypick-conflict:
+
+コンフリクトあり
+--------------------------------------------------
+
+
+#. 編集対象が ``edit`` ブランチであることを確認
+
+   .. image:: ./img/2020-08-12_19h14_18.png
+      :scale: 65%
+
+   |
+
+#. ``master`` ブランチから取り込むコミットを右クリック　→　:guilabel:`チェリーピック` をクリック
+
+   .. image:: ./img/2020-08-12_19h14_38.png
+      :scale: 65%
+
+   |
+
+#. :guilabel:`OK` をクリック
+
+   .. image:: ./img/2020-08-12_19h14_51.png
+      :scale: 65%
+
+   |
+
+   【英文　→　和訳】
+
+   - Cherry picking lets you select a commit and apply only those changes to your current branch.
+
+      チェリーピッキングでは、コミットを選択して現在のブランチに変更点のみを適用することができます。
+
+   - Commit immediately upon successful merge.
+
+      マージに成功したらすぐにコミットします。
+
+   - Include commit IDs in the merge commit message.
+
+      マージコミットメッセージにコミット ID を含めます。
+
+   |
+
+#. コンフリクト発生　→　:guilabel:`閉じる (C)` をクリック
+
+   .. image:: ./img/2020-08-12_19h15_06.png
+      :scale: 65%
+
+   |
+
+#. チェリーピック終了
+
+   コンフリクトが発生したため、チェリーピック後の内容でコミットは作成されませんでした。
+
+   .. image:: ./img/2020-08-12_19h15_22.png
+      :scale: 65%
+
+   |
+
+#. コンフリクトが発生した :file:`staff.rst` ファイルを開く　→　コンフリクトが発生した箇所を確認
+
+   .. image:: ./img/2020-08-12_19h15_53.png
+      :scale: 65%
+
+   |
+
+#. 選択肢の中から適切な動作を選択（今回は :guilabel:`両方の変更を取り込む` を選択）
+
+   .. image:: ./img/2020-08-12_19h16_05.png
+      :scale: 65%
+
+   |
+
+#. 必要ならこのタイミングで修正　→　ファイルを保存
+
+   .. image:: ./img/2020-08-12_19h16_26.png
+      :scale: 65%
+
+   |
+
+#. :file:`index.rst` ファイルをステージングエリアに登録
+
+   .. image:: ./img/2020-08-12_19h16_43.png
+      :scale: 65%
+
+   ↓
+
+   .. image:: ./img/2020-08-12_19h16_59.png
+      :scale: 65%
+
+   |
+
+#. :guilabel:`コミット` をクリック
+
+   .. image:: ./img/2020-08-12_19h17_07.png
+      :scale: 65%
+
+   |
+
+#. コミットのコメントを入力　→　:guilabel:`コミット` をクリック
+
+   .. image:: ./img/2020-08-12_19h18_14.png
+      :scale: 65%
+
+   |
+
+#. 終了
+
+   .. image:: ./img/2020-08-12_19h18_30.png
+      :scale: 65%
+
+   |
+
+#. コミットの履歴に追加されていることを確認
+
+   .. image:: ./img/2020-08-12_19h19_03.png
+      :scale: 65%
+
+   |

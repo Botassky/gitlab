@@ -1,0 +1,110 @@
+.. _gitignore-settei:
+
+設定（作成～プッシュまで）
+==================================================
+Sourcetree で設定～プッシュまで行います。
+
+#. :guilabel:`設定` をクリック
+
+   .. image:: ./img/2020-08-02_12h52_14.png
+      :scale: 65%
+
+   |
+
+#. :guilabel:`詳細` をクリック
+
+   .. image:: ./img/2020-08-02_12h52_26.png
+      :scale: 65%
+
+   |
+
+#. :guilabel:`編集` をクリック
+
+   .. image:: ./img/2020-08-02_12h52_43.png
+      :scale: 65%
+
+   |
+
+#. 使用しているエディタを選択（今回は Visual Studio Code を選択）　→　:guilabel:`OK` をクリック
+
+   .. image:: ./img/2020-08-02_12h53_22.png
+      :scale: 65%
+
+   |
+
+#. :file:`.gitignore` ファイルの編集前の状態（何も記載されていません）
+
+   .. image:: ./img/2020-08-02_12h53_59.png
+      :scale: 65%
+
+   |
+
+#. :ref:`gitignore-sample` の内容を記載　→　セーブ　→　エディタを終了
+
+   .. image:: ./img/2020-08-02_12h54_53.png
+      :scale: 65%
+
+   |
+
+#. :guilabel:`OK` をクリック
+
+   .. image:: ./img/2020-08-02_12h55_06.png
+      :scale: 65%
+
+   |
+
+#. :file:`.gitignore` ファイルをステージングエリアに移動
+
+   .. image:: ./img/2020-08-02_12h55_20.png
+      :scale: 65%
+
+   |
+
+#. :file:`.gitignore` ファイルがステージングエリアに移動したことを確認　→　:guilabel:`コミット` をクリック
+
+   .. image:: ./img/2020-08-02_12h55_57.png
+      :scale: 65%
+
+   |
+
+#. コミット時のメッセージを記入　→　:guilabel:`コミット` をクリック
+
+   .. image:: ./img/2020-08-02_12h56_54.png
+      :scale: 65%
+
+   |
+
+#. コミット終了　→　:guilabel:`プッシュ` をクリック
+
+   .. image:: ./img/2020-08-02_12h57_03.png
+      :scale: 65%
+
+   |
+
+#. 「ローカルブランチ」と「リモートブランチ」を確認　→　:guilabel:`プッシュ` をクリック
+
+   .. image:: ./img/2020-08-02_12h57_13.png
+      :scale: 65%
+
+   |
+
+#. プッシュ中
+
+   .. image:: ./img/2020-08-02_12h57_21.png
+      :scale: 65%
+
+   |
+
+#. プッシュ終了
+
+   .. image:: ./img/2020-08-02_12h57_31.png
+      :scale: 65%
+
+   |
+
+#. :guilabel:`History` をクリック　→　履歴を確認
+
+   .. image:: ./img/2020-08-02_12h57_39.png
+      :scale: 65%
+
+   |

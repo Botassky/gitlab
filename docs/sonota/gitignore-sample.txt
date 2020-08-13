@@ -1,0 +1,10 @@
+.. _gitignore-sample:
+
+サンプル
+==================================================
+" https://github.com/github/gitignore "に多数の :file:".gitignore" のサンプルが登録されています。 :file:`.gitignore` ファイルを一から作成するのではなく、これらのサンプルを活用または参考にするほうが良いでしょう。
+
+以下のコードは上記のサンプルの組み合わせに、少しカスタマイズしたものです。
+
+.. literalinclude:: ./sample-gitignore.txt
+   :language: none

@@ -1,0 +1,104 @@
+.. _user-no-sakusei-kanrisya-ga-sakusei:
+
+管理者（ root ）が作成
+==================================================
+管理者がユーザーアカウントを作成します。
+
+#. GitLab サーバーに root アカウントでサインイン
+
+   .. image:: ./img/2020-07-05_17h44_09.png
+      :scale: 65%
+
+   |
+
+#. :guilabel:`Add people` をクリック
+
+   .. image:: ./img/2020-07-05_17h44_40.png
+      :scale: 65%
+
+   |
+
+#. 各値を入力
+
+   次の内容でアカウントを作成します。
+
+   .. list-table::
+      :widths: 1, 1, 2
+
+      * - 項目
+        - 入力値
+        - 備考
+      * - Name
+        - staff jiro
+        - ユーザーのフルネーム
+      * - Username
+        - jiro
+        - ログインアカウント
+      * - Email
+        - jiro@email.local
+        - 
+
+   .. image:: ./img/2020-07-05_17h46_26.png
+      :scale: 65%
+
+   |
+
+#. 画面をスクロール　→　 :guilabel:`Create user` をクリック
+
+   .. image:: ./img/2020-07-05_17h46_38.png
+      :scale: 65%
+
+   |
+
+#. "User was successfully created." のメッセージを確認
+
+   .. image:: ./img/2020-07-05_17h47_02.png
+      :scale: 65%
+
+   |
+
+
+#. 画面右上の :guilabel:`Edit` をクリック
+
+   .. image:: img/2020-07-05_17h47_50.png
+      :scale: 65%
+
+   |
+
+#. 各値を入力　→　:guilabel:`Save changes` をクリック
+
+   作成したアカウントのパスワードを設定します。ここで設定したパスワードは初期パスワードです。このアカウントで初めてログインするとき、本パスワードに変更します。
+
+   .. list-table::
+      :widths: 1, 1, 2
+
+      * - 項目
+        - 入力値
+        - 備考
+      * - Password
+        - jiro@passwd
+        - ユーザーの初期パスワード
+      * - Password confirmation
+        - jiro@passwd
+        - "Password" と同じ値を入力
+
+   .. image:: ./img/2020-07-05_17h50_03.png
+      :scale: 65%
+
+   |
+
+
+#. 画面をスクロール　→　 :guilabel:`Save changes` をクリック
+
+   .. image:: ./img/2020-07-05_17h50_55.png
+      :scale: 65%
+
+   |
+
+#. "User was successfully updated." のメッセージを確認　→　アカウントの作成終了
+
+   .. image:: ./img/2020-07-05_17h51_07.png
+      :scale: 65%
+
+   |
+
