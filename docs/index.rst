@@ -22,5 +22,6 @@ GitLab Community Edition
    ./repository/repository
    ./branch/branch
    ./commit/commit
+   ./teams/teams
    ./sonota/sonota
    ./changelog/changelog
