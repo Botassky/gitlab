@@ -7,8 +7,6 @@
 
 今回は作業を原本と同じプロジェクトで行う／別のプロジェクトで行う、原本にマージする前にレビューを行う／行わないでの 4 パターンのケースで見ていきます。
 
-作業を同じプロジェクトで行う／
-
 .. list-table::
    :widths: 1, 2, 2
 
@@ -17,10 +15,10 @@
      - 別のプロジェクトで作業する
    * - レビューなし
      - :ref:`Case #1 <teams-case1>`
-     - :ref:`Case #2 <teams-case2>`
+     - n/a
    * - レビューあり
+     - :ref:`Case #2 <teams-case2>`
      - :ref:`Case #3 <teams-case3>`
-     - :ref:`Case #4 <teams-case4>`
 
 .. toctree::
    :hidden:
@@ -28,4 +26,3 @@
    ./teams-case1
    ./teams-case2
    ./teams-case3
-   ./teams-case4

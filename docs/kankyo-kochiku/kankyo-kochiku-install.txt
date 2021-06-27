@@ -12,7 +12,7 @@ GitLab CE のインストール時にいろいろと更新するので、イン�
 .. literalinclude:: ./reload.log
    :language: none
 
-名前解決ができるようクライアントパソコンの "C:\\Windows\\System32\\drivers\\etc\\hosts" ファイルに次の内容を追記します。
+名前解決ができるようクライアントパソコンの "C:\\Windows\\System32\\drivers\\etc\\hosts" ファイルに次の内容を追記します。もしくは内部 DNS サーバーがあり、そちらで名前解決ができるのであれば、それを使用するのも一案です。
 
 .. code-block:: none
 
