@@ -1,3 +1,5 @@
+.. _gitlab_community_edition:
+
 ##################################################
 GitLab Community Edition
 ##################################################
@@ -75,4 +77,4 @@ Git を使った作業の流れです。運用方法に差異があれど、大�
    ./commit/commit
    ./teams/teams
    ./sonota/sonota
-   ./changelog/changelog
+   ./changelog

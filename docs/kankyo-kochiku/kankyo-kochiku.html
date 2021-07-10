@@ -140,7 +140,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../sonota/slack.html">Slack に通知を飛ばす</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog/changelog.html">改版履歴</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">改版履歴</a></li>
 </ul>
 
 </div>
@@ -240,38 +240,27 @@ C:\vagrant\gitlab&gt;
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>192.168.1.151       gitlab.local
 </pre></div>
 </div>
-<div class="line-block">
-<div class="line"><br/></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://y-mrok.github.io/ansible/">Ansible</a> を使用した GitLab サーバーの構築は <a class="reference external" href="https://y-mrok.github.io/ansible/jirei/deploy_gitlab/deploy_gitlab.html">こちら</a> を確認ください。</p>
 </div>
 </div>
 <div class="section" id="kankyo-kochiku-kekka-kakunin">
-<span id="id3"></span><h2>インストール結果の確認<a class="headerlink" href="#kankyo-kochiku-kekka-kakunin" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>インストール結果の確認<a class="headerlink" href="#kankyo-kochiku-kekka-kakunin" title="Permalink to this headline">¶</a></h2>
 <p>GitLab サーバーにアクセスし、正常にインストールできたか確認します。</p>
 <ol class="arabic">
 <li><p>ブラウザーで ” <strong class="command">https://gitlab.local/</strong> “にアクセス</p>
 <a class="reference internal image-reference" href="../_images/2020-07-05_17h11_35.png"><img alt="../_images/2020-07-05_17h11_35.png" src="../_images/2020-07-05_17h11_35.png" style="width: 665.6px; height: 473.2px;"/></a>
-<div class="line-block">
-<div class="line"><br/></div>
-</div>
 </li>
 <li><p>途中でセキュリティの警告画面が表示されたら先へ進めます</p>
 <a class="reference internal image-reference" href="../_images/2020-07-05_17h11_50.png"><img alt="../_images/2020-07-05_17h11_50.png" src="../_images/2020-07-05_17h11_50.png" style="width: 665.6px; height: 427.05px;"/></a>
 <p>↓</p>
 <a class="reference internal image-reference" href="../_images/2020-07-05_17h11_58.png"><img alt="../_images/2020-07-05_17h11_58.png" src="../_images/2020-07-05_17h11_58.png" style="width: 665.6px; height: 427.05px;"/></a>
-<div class="line-block">
-<div class="line"><br/></div>
-</div>
 </li>
 <li><p>この画面が表示されたらインストール成功です</p>
 <a class="reference internal image-reference" href="../_images/2020-07-05_17h12_17.png"><img alt="../_images/2020-07-05_17h12_17.png" src="../_images/2020-07-05_17h12_17.png" style="width: 665.6px; height: 427.05px;"/></a>
-<div class="line-block">
-<div class="line"><br/></div>
-</div>
 </li>
 </ol>
-<div class="line-block">
-<div class="line"><br/></div>
-</div>
 </div>
 <div class="section" id="root">
 <span id="kankyo-kochiku-root-password-no-henko"></span><h2>root アカウントのパスワードを設定<a class="headerlink" href="#root" title="Permalink to this headline">¶</a></h2>
@@ -284,11 +273,13 @@ C:\vagrant\gitlab&gt;
 <col style="width: 20%"/>
 <col style="width: 60%"/>
 </colgroup>
-<tbody>
-<tr class="row-odd"><td><p>項目</p></td>
-<td><p>入力値</p></td>
-<td><p>備考</p></td>
+<thead>
+<tr class="row-odd"><th class="head"><p>項目</p></th>
+<th class="head"><p>入力値</p></th>
+<th class="head"><p>備考</p></th>
 </tr>
+</thead>
+<tbody>
 <tr class="row-even"><td><p>New password</p></td>
 <td><p><a class="reference external" href="mailto:root%40password">root<span>@</span>password</a></p></td>
 <td><p>GitLab サーバーの root アカウントのパスワード</p></td>
@@ -300,23 +291,54 @@ C:\vagrant\gitlab&gt;
 </tbody>
 </table></div>
 <a class="reference internal image-reference" href="../_images/2020-07-05_17h12_46.png"><img alt="../_images/2020-07-05_17h12_46.png" src="../_images/2020-07-05_17h12_46.png" style="width: 665.6px; height: 427.05px;"/></a>
-<div class="line-block">
-<div class="line"><br/></div>
-</div>
 </li>
 <li><p>“Your password has been changed successfully.” のメッセージが確認できたら root アカウントのパスワードの設定終了</p>
 <a class="reference internal image-reference" href="../_images/2020-07-05_17h12_56.png"><img alt="../_images/2020-07-05_17h12_56.png" src="../_images/2020-07-05_17h12_56.png" style="width: 665.6px; height: 427.05px;"/></a>
-<div class="line-block">
-<div class="line"><br/></div>
-</div>
 </li>
 </ol>
-<div class="line-block">
-<div class="line"><br/></div>
+</div>
+<div class="section" id="kankyo-kochiku-root-password-no-henko-commandline">
+<span id="id5"></span><h2>root アカウントのパスワードを設定（コマンドライン）<a class="headerlink" href="#kankyo-kochiku-root-password-no-henko-commandline" title="Permalink to this headline">¶</a></h2>
+<p>「 <a class="reference internal" href="#kankyo-kochiku-kekka-kakunin"><span class="std std-ref">インストール結果の確認</span></a> 」の最後で root アカウントのパスワードを設定する画面が表示されないときがあります。そのような場合は、 GitLab サーバーにログインしてコマンドラインで管理者アカウントのパスワードを設定します。この方法は GitLab の管理者アカウントのパスワードを再設定する場合にも使用できます。</p>
+<div class="section" id="kankyo-kochiku-root-password-no-henko-commandline-reset-command">
+<span id="id6"></span><h3>実行コマンド<a class="headerlink" href="#kankyo-kochiku-root-password-no-henko-commandline-reset-command" title="Permalink to this headline">¶</a></h3>
+<p>管理者パスワードを <strong>root@password</strong> に設定します。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo gitlab-rails console -e production
+user = User.where(id: 1).first
+user.password = 'root@password'
+user.password_confirmation = 'root@password'
+user.save!
+exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="kankyo-kochiku-root-password-no-henko-commandline-reset-log">
+<span id="id7"></span><h3>実行ログ<a class="headerlink" href="#kankyo-kochiku-root-password-no-henko-commandline-reset-log" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[ansible-user@gitlab ~]$ sudo gitlab-rails console -e production
+--------------------------------------------------------------------------------
+ Ruby:         ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-linux]
+ GitLab:       14.0.1 (76b84b42f64) FOSS
+ GitLab Shell: 13.19.0
+ PostgreSQL:   12.6
+--------------------------------------------------------------------------------
+Loading production environment (Rails 6.1.3.2)
+irb(main):001:0&gt; user = User.where(id: 1).first
+=&gt; #&lt;User id:1 @root&gt;
+irb(main):002:0&gt; user.password = 'root@password'
+=&gt; "root@password"
+irb(main):003:0&gt; user.password_confirmation = 'root@password'
+=&gt; "root@password"
+irb(main):004:0&gt; user.save!
+Enqueued ActionMailer::MailDeliveryJob (Job ID: f1e30646-6720-4e8f-80fe-ceec8306a255) to Sidekiq(mailers) with arguments: "DeviseMailer", "password_change", "deliver_now", {:args=&gt;[#&lt;GlobalID:0x00007f413fe84900 @uri=#&lt;URI::GID gid://gitlab/User/1&gt;&gt;]}
+=&gt; true
+irb(main):005:0&gt; exit
+[ansible-user@gitlab ~]$ 
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="kankyo-kochiku-signin-test">
-<span id="id4"></span><h2>サインインテスト<a class="headerlink" href="#kankyo-kochiku-signin-test" title="Permalink to this headline">¶</a></h2>
+<span id="id8"></span><h2>サインインテスト<a class="headerlink" href="#kankyo-kochiku-signin-test" title="Permalink to this headline">¶</a></h2>
 <p>パスワードを変更した root アカウントでサインインできるかテストします。</p>
 <ol class="arabic">
 <li><p>次の値を入力　→　<span class="guilabel">Sign in</span> をクリック</p>
@@ -326,11 +348,13 @@ C:\vagrant\gitlab&gt;
 <col style="width: 25%"/>
 <col style="width: 50%"/>
 </colgroup>
-<tbody>
-<tr class="row-odd"><td><p>項目</p></td>
-<td><p>入力値</p></td>
-<td><p>備考</p></td>
+<thead>
+<tr class="row-odd"><th class="head"><p>項目</p></th>
+<th class="head"><p>入力値</p></th>
+<th class="head"><p>備考</p></th>
 </tr>
+</thead>
+<tbody>
 <tr class="row-even"><td><p>Username or email</p></td>
 <td><p>root</p></td>
 <td></td>
@@ -342,20 +366,11 @@ C:\vagrant\gitlab&gt;
 </tbody>
 </table></div>
 <a class="reference internal image-reference" href="../_images/2020-07-05_17h13_08.png"><img alt="../_images/2020-07-05_17h13_08.png" src="../_images/2020-07-05_17h13_08.png" style="width: 665.6px; height: 427.05px;"/></a>
-<div class="line-block">
-<div class="line"><br/></div>
-</div>
 </li>
 <li><p>次の画面が表示されたらサインイン成功です</p>
 <a class="reference internal image-reference" href="../_images/2020-07-05_17h13_21.png"><img alt="../_images/2020-07-05_17h13_21.png" src="../_images/2020-07-05_17h13_21.png" style="width: 665.6px; height: 427.05px;"/></a>
-<div class="line-block">
-<div class="line"><br/></div>
-</div>
 </li>
 </ol>
-<div class="line-block">
-<div class="line"><br/></div>
-</div>
 </div>
 </div>
 
@@ -412,6 +427,11 @@ C:\vagrant\gitlab&gt;
 <li><a class="reference internal" href="#kankyo-kochiku-install">インストール</a></li>
 <li><a class="reference internal" href="#kankyo-kochiku-kekka-kakunin">インストール結果の確認</a></li>
 <li><a class="reference internal" href="#root">root アカウントのパスワードを設定</a></li>
+<li><a class="reference internal" href="#kankyo-kochiku-root-password-no-henko-commandline">root アカウントのパスワードを設定（コマンドライン）</a><ul>
+<li><a class="reference internal" href="#kankyo-kochiku-root-password-no-henko-commandline-reset-command">実行コマンド</a></li>
+<li><a class="reference internal" href="#kankyo-kochiku-root-password-no-henko-commandline-reset-log">実行ログ</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#kankyo-kochiku-signin-test">サインインテスト</a></li>
 </ul>
 </li>

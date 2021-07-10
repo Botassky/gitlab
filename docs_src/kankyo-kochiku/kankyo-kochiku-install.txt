@@ -1,7 +1,8 @@
 .. _kankyo-kochiku-install:
 
+**************************************************
 インストール
-==================================================
+**************************************************
 「 `GitLab.JP: GitLab日本語情報サイト <https://www.gitlab.jp/>`_ 」の「 `セルフマネージドGitLabをインストール <https://www.gitlab.jp/install/?version=ce#centos-8>`_ 」を参考に以下の内容の Vagrantfile を作成しました。これを使用して GitLab CE をインストールします。
 
 .. literalinclude:: ./Vagrantfile
@@ -17,3 +18,7 @@ GitLab CE のインストール時にいろいろと更新するので、イン�
 .. code-block:: none
 
    192.168.1.151       gitlab.local
+
+.. note::
+
+   `Ansible <https://y-mrok.github.io/ansible/>`_ を使用した GitLab サーバーの構築は `こちら <https://y-mrok.github.io/ansible/jirei/deploy_gitlab/deploy_gitlab.html>`_ を確認ください。
