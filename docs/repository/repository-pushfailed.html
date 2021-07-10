@@ -1,0 +1,873 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="プルに失敗する原因と対応" href="repository-pullfailed.html" /><link rel="prev" title="プル" href="repository-pull.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>プッシュに失敗する原因と対応 - Learning GitLab CE 2021/07/10 更新 documentation</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Learning GitLab CE 2021/07/10 更新　 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">Learning GitLab CE 2021/07/10 更新　 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kankyo-kochiku/kankyo-kochiku.html">環境構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-no-sakusei/user-no-sakusei.html">ユーザーアカウントの作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../group-no-sakusei/group-no-sakusei.html">グループの作成とメンバーの追加</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-no-sakusei/project-no-sakusei.html">プロジェクトの作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-client/git-client.html">Git クライアント</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="repository.html">リポジトリ</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="repository-kihon.html">基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository-clone.html">クローン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository-commit.html">コミット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository-push.html">プッシュ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository-pull.html">プル</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">プッシュに失敗する原因と対応</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository-pullfailed.html">プルに失敗する原因と対応</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../branch/branch.html">ブランチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commit/commit.html">コミット</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../teams/teams.html">グループで GitLab を使う</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case1.html">Case #1 ： 同じプロジェクト × レビューなし</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case2.html">Case #2 ： 同じプロジェクト × レビューあり</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case3.html">Case #3 ： 異なるプロジェクト × レビューあり</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sonota/sonota.html">その他</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/avatar.html">アバターの変更方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/gitignore.html">ステージングエリアから除外するファイルの指定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/commit-message.html">コミットメッセージ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/readme.html">“README.md” ファイル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/slack.html">Slack に通知を飛ばす</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/changelog.html">改版履歴</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="repository-pushfailed">
+<span id="id1"></span><h1>プッシュに失敗する原因と対応<a class="headerlink" href="#repository-pushfailed" title="Permalink to this headline">¶</a></h1>
+<p>プッシュに失敗したときの原因と対応方法です。</p>
+<div class="line-block">
+<div class="line">● <a class="reference internal" href="#repository-pushfailed-genin"><span class="std std-ref">原因と対応</span></a></div>
+<div class="line">● <a class="reference internal" href="#repository-pushfailed-rei1"><span class="std std-ref">失敗と対応の例 #1 ：  同一ファイルの更新（コンフリクトあり）</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei1-editfile"><span class="std std-ref">ファイルを編集</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei1-commit"><span class="std std-ref">コミット</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei1-push"><span class="std std-ref">プッシュ　→　エラー発生</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei1-pull"><span class="std std-ref">プル　→　コンフリクト発生</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei1-reedit"><span class="std std-ref">コンフリクトが発生したファイルの修正</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei1-recommit"><span class="std std-ref">再コミット</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei1-repush"><span class="std std-ref">再プッシュ</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei1-kakunin"><span class="std std-ref">リモートリポジトリの確認</span></a></div>
+<div class="line">● <a class="reference internal" href="#repository-pushfailed-rei2"><span class="std std-ref">失敗と対応の例 #2 ： 同一ファイルの更新（コンフリクトなし）</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei2-editfile"><span class="std std-ref">ファイルを編集</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei2-commit"><span class="std std-ref">コミット</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei2-push"><span class="std std-ref">プッシュ　→　エラー発生</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei2-pull"><span class="std std-ref">プル</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei2-reedit"><span class="std std-ref">取り込んだファイルの確認</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei2-recommit"><span class="std std-ref">再コミット</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei2-repush"><span class="std std-ref">再プッシュ</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei2-kakunin"><span class="std std-ref">リモートリポジトリの確認</span></a></div>
+<div class="line">● <a class="reference internal" href="#repository-pushfailed-rei3"><span class="std std-ref">失敗と対応の例 #3 ： 異なるファイルの更新</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei3-editfile"><span class="std std-ref">ファイルを編集</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei3-commit"><span class="std std-ref">コミット</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei3-push"><span class="std std-ref">プッシュ　→　エラー発生</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei3-pull"><span class="std std-ref">プル</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei3-reedit"><span class="std std-ref">取り込んだファイルの確認</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei3-recommit"><span class="std std-ref">再コミット</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei3-repush"><span class="std std-ref">再プッシュ</span></a></div>
+<div class="line">　　・ <a class="reference internal" href="#repository-pushfailed-rei3-kakunin"><span class="std std-ref">リモートリポジトリの確認</span></a></div>
+</div>
+<div class="section" id="repository-pushfailed-genin">
+<span id="id2"></span><h2>原因と対応<a class="headerlink" href="#repository-pushfailed-genin" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>原因</dt><dd><ul class="simple">
+<li><p>リモートブランチよりもリモート追跡ブランチの履歴が古いため。</p></li>
+<li><p>「履歴が古い　＝　ファイルが古い」状態なので、そのままプッシュするとリモートリポジトリ内のファイルがデグレードする可能性があります。そのため、リモートブランチよりリモート追跡ブランチの履歴が古い場合にプッシュは失敗します（ファイルの上書きによるデグレードを防止します）。</p></li>
+</ul>
+</dd>
+<dt>対応</dt><dd><ul class="simple">
+<li><p>プルを実行し、リモートリポジトリの変更内容をローカルリポジトリに反映します。</p></li>
+<li><p>プルの実行時にコンフリクトが発生したときは、優先する変更内容を決定します。その後「コミット　→　プッシュ」を実行し、リモートリポジトリに変更内容を反映します。</p></li>
+<li><p>プルの実行時にコンフリクトが発生しなかったときは、Git がコミット内容に矛盾が出ないようファイルをマージします。その後「プッシュ」を実行し、リモートリポジトリに変更内容を反映します。</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="repository-pushfailed-rei1">
+<span id="id3"></span><h2>失敗と対応の例 #1 ：  同一ファイルの更新（コンフリクトあり）<a class="headerlink" href="#repository-pushfailed-rei1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="repository-pushfailed-rei1-editfile">
+<span id="id4"></span><h3>ファイルを編集<a class="headerlink" href="#repository-pushfailed-rei1-editfile" title="Permalink to this headline">¶</a></h3>
+<p><code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ファイル内の「発足」を変更します。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h35_53.png"><img alt="../_images/2020-07-23_20h35_53.png" src="../_images/2020-07-23_20h35_53.png" style="width: 665.6px; height: 473.2px;"/></a>
+<p>↓</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h38_34.png"><img alt="../_images/2020-07-23_20h38_34.png" src="../_images/2020-07-23_20h38_34.png" style="width: 665.6px; height: 473.2px;"/></a>
+</div>
+<div class="section" id="repository-pushfailed-rei1-commit">
+<span id="id5"></span><h3>コミット<a class="headerlink" href="#repository-pushfailed-rei1-commit" title="Permalink to this headline">¶</a></h3>
+<p>編集内容をコミットします。</p>
+<ol class="arabic">
+<li><p>コミット前の状態　→　<span class="guilabel">コミットされていない変更があります</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h40_48.png"><img alt="../_images/2020-07-23_20h40_48.png" src="../_images/2020-07-23_20h40_48.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>対象ファイルをステージングエリアに登録　→　<span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h41_02.png"><img alt="../_images/2020-07-23_20h41_02.png" src="../_images/2020-07-23_20h41_02.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コメントを入力　→　<span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h41_58.png"><img alt="../_images/2020-07-23_20h41_58.png" src="../_images/2020-07-23_20h41_58.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コミット終了</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h42_11.png"><img alt="../_images/2020-07-23_20h42_11.png" src="../_images/2020-07-23_20h42_11.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei1-push">
+<span id="id6"></span><h3>プッシュ　→　エラー発生<a class="headerlink" href="#repository-pushfailed-rei1-push" title="Permalink to this headline">¶</a></h3>
+<p>ローカルリポジトリの内容をリモートリポジトリに反映します。今回はエラーが発生し、プッシュに失敗します。</p>
+<ol class="arabic">
+<li><p><span class="guilabel">プッシュ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h42_27.png"><img alt="../_images/2020-07-23_20h42_27.png" src="../_images/2020-07-23_20h42_27.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">ローカル</span> と <span class="guilabel">リモートブランチ</span> の値を確認　→　<span class="guilabel">プッシュ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h42_36.png"><img alt="../_images/2020-07-23_20h42_36.png" src="../_images/2020-07-23_20h42_36.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プッシュ中にエラー発生　→　<span class="guilabel">閉じる</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h42_52.png"><img alt="../_images/2020-07-23_20h42_52.png" src="../_images/2020-07-23_20h42_52.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+<p>ヒントと翻訳結果です。</p>
+<p>Updates were rejected because the remote contains work that you do not have locally. This is usually caused by another repository pushing to the same ref. You may want to first integrate the remote changes (e.g., ‘git pull …’) before pushing again. See the ‘Note about fast-forwards’ in ‘git push –help’ for details.</p>
+<p>↓</p>
+<p>リモートにローカルにない作業が含まれているため、更新が拒否されました。これは通常、他のリポジトリが同じ ref にプッシュしていることが原因です。最初にリモートの変更を統合してから (たとえば ‘git pull ….’ のように) 再度プッシュしたほうがいいかもしれません。詳細は ‘git push –help’ の ‘fast-forward についての注意事項’ を参照ください。</p>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">キャンセル</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h43_04.png"><img alt="../_images/2020-07-23_20h43_04.png" src="../_images/2020-07-23_20h43_04.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プッシュ終了</p>
+<p>プッシュに失敗したので、リモートリポジトリの内容は変更されていません。リモート追跡ブランチも更新されないため、プッシュ前と同じ状態です。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h43_15.png"><img alt="../_images/2020-07-23_20h43_15.png" src="../_images/2020-07-23_20h43_15.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei1-pull">
+<span id="id7"></span><h3>プル　→　コンフリクト発生<a class="headerlink" href="#repository-pushfailed-rei1-pull" title="Permalink to this headline">¶</a></h3>
+<p>リモートリポジトリの変更をローカルリポジトリに反映します。今回はコンフリクトが発生します。</p>
+<div class="admonition- admonition">
+<p class="admonition-title">コンフリクト（衝突）</p>
+<p>同じファイルの同じ箇所の修正がかち合った（コンフリクト、衝突）状態のこと。</p>
+</div>
+<ol class="arabic">
+<li><p>リモートリポジトリの状態を確認</p>
+<p>前回の <a class="reference internal" href="repository-pull.html#repository-pull"><span class="std std-ref">プル</span></a> の後に、新しいプッシュがあることを確認できます。上記のエラーは履歴がリモート追跡リポジトリよりリモートリポジトリが新しかったために発生したことがわかります。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h43_44.png"><img alt="../_images/2020-07-23_20h43_44.png" src="../_images/2020-07-23_20h43_44.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">プル</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h45_46.png"><img alt="../_images/2020-07-23_20h45_46.png" src="../_images/2020-07-23_20h45_46.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プル元を確認　→　<span class="guilabel">プル</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h46_36.png"><img alt="../_images/2020-07-23_20h46_36.png" src="../_images/2020-07-23_20h46_36.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プル中にコンフリクトが発生　→　<span class="guilabel">閉じる(C)</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h46_56.png"><img alt="../_images/2020-07-23_20h46_56.png" src="../_images/2020-07-23_20h46_56.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プル終了</p>
+<p>プル中にコンフリクトが発生しましたが、ローカルリポジトリにリモートリポジトリの変更内容が取り込まれました。 <code class="docutils literal notranslate"><span class="pre">！</span></code> マークが付いているのがコンフリクトが発生したファイルです。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h47_07.png"><img alt="../_images/2020-07-23_20h47_07.png" src="../_images/2020-07-23_20h47_07.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei1-reedit">
+<span id="id8"></span><h3>コンフリクトが発生したファイルの修正<a class="headerlink" href="#repository-pushfailed-rei1-reedit" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>コンフリクトが発生した <code class="file docutils literal notranslate"><span class="pre">docs/source/index.rst</span></code> ファイルを開く</p>
+<p>コンフリクトマーカー（衝突マーカ－）の確認　＝　コンフリクトが発生した部分が対象ごとに色分けして編みかけされています。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h49_01.png"><img alt="../_images/2020-07-23_20h49_01.png" src="../_images/2020-07-23_20h49_01.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>対応方法の候補から適切なものを選択</p>
+<div class="line-block">
+<div class="line">次の 3 つの対応方法の候補が表示されています。</div>
+<div class="line">・ 現在の変更を取り込む　＝　ローカルリポジトリの内容を取り込みます</div>
+<div class="line">・ 入力側の変更を取り込む　＝　リモートリポジトリの内容を取り込みます</div>
+<div class="line">・ 両方の変更を取り込む　＝　両リポジトリの内容を取り込みます</div>
+<div class="line">今回は「入力側の変更を取り込む」を選択します。</div>
+</div>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h49_39.png"><img alt="../_images/2020-07-23_20h49_39.png" src="../_images/2020-07-23_20h49_39.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>修正内容の保存</p>
+<p>選択した候補の内容だけが表示されています。他に修正が必要な箇所があれば、このタイミングで修正します。修正後はファイルをセーブします。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h49_51.png"><img alt="../_images/2020-07-23_20h49_51.png" src="../_images/2020-07-23_20h49_51.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei1-recommit">
+<span id="id9"></span><h3>再コミット<a class="headerlink" href="#repository-pushfailed-rei1-recommit" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>修正したファイルをステージングエリアに移動</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h50_41.png"><img alt="../_images/2020-07-23_20h50_41.png" src="../_images/2020-07-23_20h50_41.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h50_49.png"><img alt="../_images/2020-07-23_20h50_49.png" src="../_images/2020-07-23_20h50_49.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">コミット</span> をクリック</p>
+<p>コミット時のコメントは自動的に設定されます。変更も可能です。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h51_05.png"><img alt="../_images/2020-07-23_20h51_05.png" src="../_images/2020-07-23_20h51_05.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コミット終了</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h51_26.png"><img alt="../_images/2020-07-23_20h51_26.png" src="../_images/2020-07-23_20h51_26.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">master</span></code> が先頭の履歴を指していることを確認</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h52_13.png"><img alt="../_images/2020-07-23_20h52_13.png" src="../_images/2020-07-23_20h52_13.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei1-repush">
+<span id="id10"></span><h3>再プッシュ<a class="headerlink" href="#repository-pushfailed-rei1-repush" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p><span class="guilabel">プッシュ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h52_14.png"><img alt="../_images/2020-07-23_20h52_14.png" src="../_images/2020-07-23_20h52_14.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">ローカルブランチ</span> と <span class="guilabel">リモートブランチ</span> の値を確認　→　<span class="guilabel">プッシュ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h52_22.png"><img alt="../_images/2020-07-23_20h52_22.png" src="../_images/2020-07-23_20h52_22.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プッシュ終了</p>
+<p>ローカルリポジトリとリモートリポジトリが同じ内容になったので、 <code class="docutils literal notranslate"><span class="pre">master</span></code> ・ <code class="docutils literal notranslate"><span class="pre">origin/master</span></code> ・ <code class="docutils literal notranslate"><span class="pre">origin/HEAD</span></code> が同じ位置に表示されています。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-23_20h52_34.png"><img alt="../_images/2020-07-23_20h52_34.png" src="../_images/2020-07-23_20h52_34.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei1-kakunin">
+<span id="id11"></span><h3>リモートリポジトリの確認<a class="headerlink" href="#repository-pushfailed-rei1-kakunin" title="Permalink to this headline">¶</a></h3>
+<p>コミット履歴に今回プッシュした内容が追加されたことを確認できます。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/2020-07-23_20h52_52.png"><img alt="../_images/2020-07-23_20h52_52.png" src="../_images/2020-07-23_20h52_52.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="repository-pushfailed-rei2">
+<span id="id12"></span><h2>失敗と対応の例 #2 ： 同一ファイルの更新（コンフリクトなし）<a class="headerlink" href="#repository-pushfailed-rei2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="repository-pushfailed-rei2-editfile">
+<span id="id13"></span><h3>ファイルを編集<a class="headerlink" href="#repository-pushfailed-rei2-editfile" title="Permalink to this headline">¶</a></h3>
+<p><code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ファイル内の「このドキュメントについて」を「はじめに」に変更します。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h06_46.png"><img alt="../_images/2020-07-24_13h06_46.png" src="../_images/2020-07-24_13h06_46.png" style="width: 665.6px; height: 473.2px;"/></a>
+<p>↓</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h07_01.png"><img alt="../_images/2020-07-24_13h07_01.png" src="../_images/2020-07-24_13h07_01.png" style="width: 665.6px; height: 473.2px;"/></a>
+</div>
+<div class="section" id="repository-pushfailed-rei2-commit">
+<span id="id14"></span><h3>コミット<a class="headerlink" href="#repository-pushfailed-rei2-commit" title="Permalink to this headline">¶</a></h3>
+<p>編集内容をコミットします。</p>
+<ol class="arabic">
+<li><p>コミット前の状態　→　<span class="guilabel">コミットされていない変更があります</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h07_19.png"><img alt="../_images/2020-07-24_13h07_19.png" src="../_images/2020-07-24_13h07_19.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>対象ファイルをステージングエリアに登録　→　<span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h07_29.png"><img alt="../_images/2020-07-24_13h07_29.png" src="../_images/2020-07-24_13h07_29.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コメントを入力　→　<span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h08_20.png"><img alt="../_images/2020-07-24_13h08_20.png" src="../_images/2020-07-24_13h08_20.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コミット終了</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h08_31.png"><img alt="../_images/2020-07-24_13h08_31.png" src="../_images/2020-07-24_13h08_31.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei2-push">
+<span id="id15"></span><h3>プッシュ　→　エラー発生<a class="headerlink" href="#repository-pushfailed-rei2-push" title="Permalink to this headline">¶</a></h3>
+<p>ローカルリポジトリの内容をリモートリポジトリに反映します。今回はエラーが発生し、プッシュに失敗します。</p>
+<ol class="arabic">
+<li><p><span class="guilabel">プッシュ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h08_48.png"><img alt="../_images/2020-07-24_13h08_48.png" src="../_images/2020-07-24_13h08_48.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">ローカル</span> と <span class="guilabel">リモートブランチ</span> の値を確認　→　<span class="guilabel">プッシュ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h08_59.png"><img alt="../_images/2020-07-24_13h08_59.png" src="../_images/2020-07-24_13h08_59.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プッシュ中にエラー発生　→　<span class="guilabel">閉じる</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h09_11.png"><img alt="../_images/2020-07-24_13h09_11.png" src="../_images/2020-07-24_13h09_11.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+<p>ヒントと翻訳結果です。</p>
+<p>Updates were rejected because the remote contains work that you do not have locally. This is usually caused by another repository pushing to the same ref. You may want to first integrate the remote changes (e.g., ‘git pull …’) before pushing again. See the ‘Note about fast-forwards’ in ‘git push –help’ for details.</p>
+<p>↓</p>
+<p>リモートにローカルにない作業が含まれているため、更新が拒否されました。これは通常、他のリポジトリが同じ ref にプッシュしていることが原因です。最初にリモートの変更を統合してから (たとえば ‘git pull ….’ のように) 再度プッシュしたほうがいいかもしれません。詳細は ‘git push –help’ の ‘fast-forward についての注意事項’ を参照ください。</p>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">キャンセル</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h09_20.png"><img alt="../_images/2020-07-24_13h09_20.png" src="../_images/2020-07-24_13h09_20.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プッシュ終了</p>
+<p>プッシュに失敗したので、リモートリポジトリの内容は変更されていません。リモート追跡ブランチも更新されないため、プッシュ前と同じ状態です。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h09_28.png"><img alt="../_images/2020-07-24_13h09_28.png" src="../_images/2020-07-24_13h09_28.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei2-pull">
+<span id="id16"></span><h3>プル<a class="headerlink" href="#repository-pushfailed-rei2-pull" title="Permalink to this headline">¶</a></h3>
+<p>リモートリポジトリの変更をローカルリポジトリに反映します。</p>
+<ol class="arabic">
+<li><p>リモートリポジトリの状態を確認</p>
+<p>自分（ riki ）が行ったプッシュの後に新しいプッシュがあることを確認できます。上記のエラーは履歴がリモート追跡リポジトリよりリモートリポジトリが新しかったために発生したことがわかります。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h09_48.png"><img alt="../_images/2020-07-24_13h09_48.png" src="../_images/2020-07-24_13h09_48.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">プル</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h09_59.png"><img alt="../_images/2020-07-24_13h09_59.png" src="../_images/2020-07-24_13h09_59.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プル元を確認　→　<span class="guilabel">プル</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h10_09.png"><img alt="../_images/2020-07-24_13h10_09.png" src="../_images/2020-07-24_13h10_09.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プル終了</p>
+<p>ローカルリポジトリにリモートリポジトリの変更内容が取り込まれました。 <code class="docutils literal notranslate"><span class="pre">！</span></code> マークが付いているファイルがないので、コンフリクトは発生していません。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h10_22.png"><img alt="../_images/2020-07-24_13h10_22.png" src="../_images/2020-07-24_13h10_22.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei2-reedit">
+<span id="id17"></span><h3>取り込んだファイルの確認<a class="headerlink" href="#repository-pushfailed-rei2-reedit" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>コンフリクトが発生していないので、色分けされた部分はありません。</p></li>
+<li><p>リモートリポジトリ（青枠で囲んだ部分）とローカルリポジトリ（赤枠で囲んだ部分）の変更箇所がマージされました。</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h10_57.png"><img alt="../_images/2020-07-24_13h10_57.png" src="../_images/2020-07-24_13h10_57.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div>
+<div class="section" id="repository-pushfailed-rei2-recommit">
+<span id="id18"></span><h3>再コミット<a class="headerlink" href="#repository-pushfailed-rei2-recommit" title="Permalink to this headline">¶</a></h3>
+<p><span class="guilabel">コミットされていない変更があります</span> が表示されていないので、再コミットは不要です。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h11_28.png"><img alt="../_images/2020-07-24_13h11_28.png" src="../_images/2020-07-24_13h11_28.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div>
+<div class="section" id="repository-pushfailed-rei2-repush">
+<span id="id19"></span><h3>再プッシュ<a class="headerlink" href="#repository-pushfailed-rei2-repush" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p><span class="guilabel">プッシュ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h11_57.png"><img alt="../_images/2020-07-24_13h11_57.png" src="../_images/2020-07-24_13h11_57.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">ローカルブランチ</span> と <span class="guilabel">リモートブランチ</span> の値を確認　→　<span class="guilabel">プッシュ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h12_34.png"><img alt="../_images/2020-07-24_13h12_34.png" src="../_images/2020-07-24_13h12_34.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プッシュ終了</p>
+<p>ローカルリポジトリとリモートリポジトリが同じ内容になったので、 <code class="docutils literal notranslate"><span class="pre">master</span></code> ・ <code class="docutils literal notranslate"><span class="pre">origin/master</span></code> ・ <code class="docutils literal notranslate"><span class="pre">origin/HEAD</span></code> が同じ位置に表示されています。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_13h12_54.png"><img alt="../_images/2020-07-24_13h12_54.png" src="../_images/2020-07-24_13h12_54.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei2-kakunin">
+<span id="id20"></span><h3>リモートリポジトリの確認<a class="headerlink" href="#repository-pushfailed-rei2-kakunin" title="Permalink to this headline">¶</a></h3>
+<p>コミット履歴に今回プッシュした内容が追加されています。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/2020-07-24_13h13_08.png"><img alt="../_images/2020-07-24_13h13_08.png" src="../_images/2020-07-24_13h13_08.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="repository-pushfailed-rei3">
+<span id="id21"></span><h2>失敗と対応の例 #3 ： 異なるファイルの更新<a class="headerlink" href="#repository-pushfailed-rei3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="repository-pushfailed-rei3-editfile">
+<span id="id22"></span><h3>ファイルを編集<a class="headerlink" href="#repository-pushfailed-rei3-editfile" title="Permalink to this headline">¶</a></h3>
+<p><code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ファイル内の発足日を変更します。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h17_07.png"><img alt="../_images/2020-07-24_19h17_07.png" src="../_images/2020-07-24_19h17_07.png" style="width: 665.6px; height: 473.2px;"/></a>
+<p>↓</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h17_41.png"><img alt="../_images/2020-07-24_19h17_41.png" src="../_images/2020-07-24_19h17_41.png" style="width: 665.6px; height: 473.2px;"/></a>
+</div>
+<div class="section" id="repository-pushfailed-rei3-commit">
+<span id="id23"></span><h3>コミット<a class="headerlink" href="#repository-pushfailed-rei3-commit" title="Permalink to this headline">¶</a></h3>
+<p>編集内容をコミットします。</p>
+<ol class="arabic">
+<li><p>コミット前の状態　→　<span class="guilabel">コミットされていない変更があります</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h18_24.png"><img alt="../_images/2020-07-24_19h18_24.png" src="../_images/2020-07-24_19h18_24.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>対象ファイルをステージングエリアに登録　→　<span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h18_45.png"><img alt="../_images/2020-07-24_19h18_45.png" src="../_images/2020-07-24_19h18_45.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コメントを入力　→　<span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h19_29.png"><img alt="../_images/2020-07-24_19h19_29.png" src="../_images/2020-07-24_19h19_29.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コミット終了</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h19_46.png"><img alt="../_images/2020-07-24_19h19_46.png" src="../_images/2020-07-24_19h19_46.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei3-push">
+<span id="id24"></span><h3>プッシュ　→　エラー発生<a class="headerlink" href="#repository-pushfailed-rei3-push" title="Permalink to this headline">¶</a></h3>
+<p>ローカルリポジトリの内容をリモートリポジトリに反映します。今回はエラーが発生し、プッシュに失敗します。</p>
+<ol class="arabic">
+<li><p><span class="guilabel">プッシュ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h20_14.png"><img alt="../_images/2020-07-24_19h20_14.png" src="../_images/2020-07-24_19h20_14.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">ローカル</span> と <span class="guilabel">リモートブランチ</span> の値を確認　→　<span class="guilabel">プッシュ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h20_30.png"><img alt="../_images/2020-07-24_19h20_30.png" src="../_images/2020-07-24_19h20_30.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プッシュ中にエラー発生　→　<span class="guilabel">閉じる</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h20_48.png"><img alt="../_images/2020-07-24_19h20_48.png" src="../_images/2020-07-24_19h20_48.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+<p>ヒントと翻訳結果です。</p>
+<p>Updates were rejected because the tip of your current branch is behind its remote counterpart. Integrate the remote changes (e.g. ‘git pull …’) before pussing again. See the ‘Note about fast-forwards’ in ‘git push –help’ for details.</p>
+<p>↓</p>
+<p>現在のブランチの先端がリモートブランチの後ろにあるため、更新が拒否されました。リモートの変更を統合してから (たとえば ‘git pull ….’ のように) 再度 pussing しましょう。詳細は ‘git push –help’ の ‘fast-forward についての注意事項’ を参照ください。</p>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">キャンセル</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h21_01.png"><img alt="../_images/2020-07-24_19h21_01.png" src="../_images/2020-07-24_19h21_01.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プッシュ終了</p>
+<p>プッシュに失敗したので、リモートリポジトリの内容は変更されていません。リモート追跡ブランチも更新されないため、プッシュ前と同じ状態です。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h21_14.png"><img alt="../_images/2020-07-24_19h21_14.png" src="../_images/2020-07-24_19h21_14.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei3-pull">
+<span id="id25"></span><h3>プル<a class="headerlink" href="#repository-pushfailed-rei3-pull" title="Permalink to this headline">¶</a></h3>
+<p>リモートリポジトリの変更をローカルリポジトリに反映します。</p>
+<ol class="arabic">
+<li><p>リモートリポジトリの状態を確認</p>
+<p>自分（ riki ）が行ったプッシュの後に新しいプッシュがあることを確認できます。上記のエラーは履歴がリモート追跡リポジトリよりリモートリポジトリが新しかったために発生したことがわかります。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h21_53.png"><img alt="../_images/2020-07-24_19h21_53.png" src="../_images/2020-07-24_19h21_53.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">プル</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h22_27.png"><img alt="../_images/2020-07-24_19h22_27.png" src="../_images/2020-07-24_19h22_27.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プル元を確認　→　<span class="guilabel">プル</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h22_41.png"><img alt="../_images/2020-07-24_19h22_41.png" src="../_images/2020-07-24_19h22_41.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プル終了</p>
+<p>ローカルリポジトリにリモートリポジトリの変更内容が取り込まれました。 <code class="docutils literal notranslate"><span class="pre">！</span></code> マークが付いているファイルがないので、コンフリクトは発生していません。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h23_36.png"><img alt="../_images/2020-07-24_19h23_36.png" src="../_images/2020-07-24_19h23_36.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei3-reedit">
+<span id="id26"></span><h3>取り込んだファイルの確認<a class="headerlink" href="#repository-pushfailed-rei3-reedit" title="Permalink to this headline">¶</a></h3>
+<p>プルで <code class="file docutils literal notranslate"><span class="pre">docs/source/conf.py</span></code> ファイルが取り込まれました。このファイルは編集していないので、取り込んだ内容のままとします。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h25_19.png"><img alt="../_images/2020-07-24_19h25_19.png" src="../_images/2020-07-24_19h25_19.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div>
+<div class="section" id="repository-pushfailed-rei3-recommit">
+<span id="id27"></span><h3>再コミット<a class="headerlink" href="#repository-pushfailed-rei3-recommit" title="Permalink to this headline">¶</a></h3>
+<p><span class="guilabel">コミットされていない変更があります</span> が表示されていないので、再コミットは不要です。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h26_13.png"><img alt="../_images/2020-07-24_19h26_13.png" src="../_images/2020-07-24_19h26_13.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div>
+<div class="section" id="repository-pushfailed-rei3-repush">
+<span id="id28"></span><h3>再プッシュ<a class="headerlink" href="#repository-pushfailed-rei3-repush" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p><span class="guilabel">プッシュ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h26_34.png"><img alt="../_images/2020-07-24_19h26_34.png" src="../_images/2020-07-24_19h26_34.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">ローカルブランチ</span> と <span class="guilabel">リモートブランチ</span> の値を確認　→　<span class="guilabel">プッシュ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h26_50.png"><img alt="../_images/2020-07-24_19h26_50.png" src="../_images/2020-07-24_19h26_50.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プッシュ終了</p>
+<p>ローカルリポジトリとリモートリポジトリが同じ内容になったので、 <code class="docutils literal notranslate"><span class="pre">master</span></code> ・ <code class="docutils literal notranslate"><span class="pre">origin/master</span></code> ・ <code class="docutils literal notranslate"><span class="pre">origin/HEAD</span></code> が同じ位置に表示されています。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-24_19h27_10.png"><img alt="../_images/2020-07-24_19h27_10.png" src="../_images/2020-07-24_19h27_10.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="repository-pushfailed-rei3-kakunin">
+<span id="id29"></span><h3>リモートリポジトリの確認<a class="headerlink" href="#repository-pushfailed-rei3-kakunin" title="Permalink to this headline">¶</a></h3>
+<p>コミット履歴に今回プッシュした内容が追加されています。</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/2020-07-24_19h27_45.png"><img alt="../_images/2020-07-24_19h27_45.png" src="../_images/2020-07-24_19h27_45.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="repository-pullfailed.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">プルに失敗する原因と対応</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="repository-pull.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">プル</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, y_mrok
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">プッシュに失敗する原因と対応</a><ul>
+<li><a class="reference internal" href="#repository-pushfailed-genin">原因と対応</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei1">失敗と対応の例 #1 ：  同一ファイルの更新（コンフリクトあり）</a><ul>
+<li><a class="reference internal" href="#repository-pushfailed-rei1-editfile">ファイルを編集</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei1-commit">コミット</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei1-push">プッシュ　→　エラー発生</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei1-pull">プル　→　コンフリクト発生</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei1-reedit">コンフリクトが発生したファイルの修正</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei1-recommit">再コミット</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei1-repush">再プッシュ</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei1-kakunin">リモートリポジトリの確認</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#repository-pushfailed-rei2">失敗と対応の例 #2 ： 同一ファイルの更新（コンフリクトなし）</a><ul>
+<li><a class="reference internal" href="#repository-pushfailed-rei2-editfile">ファイルを編集</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei2-commit">コミット</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei2-push">プッシュ　→　エラー発生</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei2-pull">プル</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei2-reedit">取り込んだファイルの確認</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei2-recommit">再コミット</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei2-repush">再プッシュ</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei2-kakunin">リモートリポジトリの確認</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#repository-pushfailed-rei3">失敗と対応の例 #3 ： 異なるファイルの更新</a><ul>
+<li><a class="reference internal" href="#repository-pushfailed-rei3-editfile">ファイルを編集</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei3-commit">コミット</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei3-push">プッシュ　→　エラー発生</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei3-pull">プル</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei3-reedit">取り込んだファイルの確認</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei3-recommit">再コミット</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei3-repush">再プッシュ</a></li>
+<li><a class="reference internal" href="#repository-pushfailed-rei3-kakunin">リモートリポジトリの確認</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

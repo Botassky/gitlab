@@ -1,0 +1,567 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="グループの作成とメンバーの追加" href="../group-no-sakusei/group-no-sakusei.html" /><link rel="prev" title="環境構築" href="../kankyo-kochiku/kankyo-kochiku.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>ユーザーアカウントの作成 - Learning GitLab CE 2021/07/10 更新 documentation</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Learning GitLab CE 2021/07/10 更新　 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">Learning GitLab CE 2021/07/10 更新　 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kankyo-kochiku/kankyo-kochiku.html">環境構築</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">ユーザーアカウントの作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../group-no-sakusei/group-no-sakusei.html">グループの作成とメンバーの追加</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-no-sakusei/project-no-sakusei.html">プロジェクトの作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-client/git-client.html">Git クライアント</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../repository/repository.html">リポジトリ</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-kihon.html">基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-clone.html">クローン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-commit.html">コミット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-push.html">プッシュ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-pull.html">プル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-pushfailed.html">プッシュに失敗する原因と対応</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-pullfailed.html">プルに失敗する原因と対応</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../branch/branch.html">ブランチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commit/commit.html">コミット</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../teams/teams.html">グループで GitLab を使う</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case1.html">Case #1 ： 同じプロジェクト × レビューなし</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case2.html">Case #2 ： 同じプロジェクト × レビューあり</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case3.html">Case #3 ： 異なるプロジェクト × レビューあり</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sonota/sonota.html">その他</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/avatar.html">アバターの変更方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/gitignore.html">ステージングエリアから除外するファイルの指定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/commit-message.html">コミットメッセージ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/readme.html">“README.md” ファイル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/slack.html">Slack に通知を飛ばす</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/changelog.html">改版履歴</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="user-no-sakusei">
+<span id="id1"></span><h1>ユーザーアカウントの作成<a class="headerlink" href="#user-no-sakusei" title="Permalink to this headline">¶</a></h1>
+<p>ユーザーアカウントは次のいずれかの方法で作成します。</p>
+<ul class="simple">
+<li><p>ユーザー自身が作成する</p></li>
+<li><p>管理者（ root ）が作成する</p></li>
+</ul>
+<div class="line-block">
+<div class="line">● <a class="reference internal" href="#user-no-sakusei-user-ga-sakusei"><span class="std std-ref">ユーザー自身が作成</span></a></div>
+<div class="line">● <a class="reference internal" href="#user-no-sakusei-kanrisya-ga-sakusei"><span class="std std-ref">管理者（ root ）が作成</span></a></div>
+<div class="line">● <a class="reference internal" href="#user-no-sakusei-signin-test"><span class="std std-ref">サインインテスト</span></a></div>
+</div>
+<div class="section" id="user-no-sakusei-user-ga-sakusei">
+<span id="id2"></span><h2>ユーザー自身が作成<a class="headerlink" href="#user-no-sakusei-user-ga-sakusei" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>ブラウザーで GitLab サーバーにアクセス　→　<span class="guilabel">Register</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_17h34_58.png"><img alt="../_images/2020-07-05_17h34_58.png" src="../_images/2020-07-05_17h34_58.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>各値を入力　→　<span class="guilabel">Register</span> をクリック</p>
+<p>次の内容でアカウントを作成します。 <span class="guilabel">Username</span> の入力後に緑色で “Username is available.” が表示されたら使用可能なユーザー名です。</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 50%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>項目</p></td>
+<td><p>入力値</p></td>
+<td><p>備考</p></td>
+</tr>
+<tr class="row-even"><td><p>Full name</p></td>
+<td><p>staff taro</p></td>
+<td><p>ユーザーのフルネーム</p></td>
+</tr>
+<tr class="row-odd"><td><p>Username</p></td>
+<td><p>taro</p></td>
+<td><p>ログインアカウント</p></td>
+</tr>
+<tr class="row-even"><td><p>Email</p></td>
+<td><p><a class="reference external" href="mailto:taro%40email.local">taro<span>@</span>email<span>.</span>local</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Email confirmation</p></td>
+<td><p><a class="reference external" href="mailto:taro%40email.local">taro<span>@</span>email<span>.</span>local</a></p></td>
+<td><p>“Email” と同じ値</p></td>
+</tr>
+<tr class="row-even"><td><p>Password</p></td>
+<td><p><a class="reference external" href="mailto:taro%40password">taro<span>@</span>password</a></p></td>
+<td><p>アカウントのパスワード</p></td>
+</tr>
+</tbody>
+</table></div>
+<a class="reference internal image-reference" href="../_images/2020-07-05_17h37_44.png"><img alt="../_images/2020-07-05_17h37_44.png" src="../_images/2020-07-05_17h37_44.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>アカウントの作成終了</p>
+<p><span class="guilabel">Register</span> のクリック後にユーザーアカウントが作成され、そのままサインインします。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_17h38_00.png"><img alt="../_images/2020-07-05_17h38_00.png" src="../_images/2020-07-05_17h38_00.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div>
+<div class="section" id="root">
+<span id="user-no-sakusei-kanrisya-ga-sakusei"></span><h2>管理者（ root ）が作成<a class="headerlink" href="#root" title="Permalink to this headline">¶</a></h2>
+<p>管理者がユーザーアカウントを作成します。</p>
+<ol class="arabic">
+<li><p>GitLab サーバーに root アカウントでサインイン</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_17h44_09.png"><img alt="../_images/2020-07-05_17h44_09.png" src="../_images/2020-07-05_17h44_09.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">Add people</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_17h44_40.png"><img alt="../_images/2020-07-05_17h44_40.png" src="../_images/2020-07-05_17h44_40.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>各値を入力</p>
+<p>次の内容でアカウントを作成します。</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 50%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>項目</p></td>
+<td><p>入力値</p></td>
+<td><p>備考</p></td>
+</tr>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>staff jiro</p></td>
+<td><p>ユーザーのフルネーム</p></td>
+</tr>
+<tr class="row-odd"><td><p>Username</p></td>
+<td><p>jiro</p></td>
+<td><p>ログインアカウント</p></td>
+</tr>
+<tr class="row-even"><td><p>Email</p></td>
+<td><p><a class="reference external" href="mailto:jiro%40email.local">jiro<span>@</span>email<span>.</span>local</a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<a class="reference internal image-reference" href="../_images/2020-07-05_17h46_26.png"><img alt="../_images/2020-07-05_17h46_26.png" src="../_images/2020-07-05_17h46_26.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>画面をスクロール　→　 <span class="guilabel">Create user</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_17h46_38.png"><img alt="../_images/2020-07-05_17h46_38.png" src="../_images/2020-07-05_17h46_38.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>“User was successfully created.” のメッセージを確認</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_17h47_02.png"><img alt="../_images/2020-07-05_17h47_02.png" src="../_images/2020-07-05_17h47_02.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>画面右上の <span class="guilabel">Edit</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_17h47_50.png"><img alt="../_images/2020-07-05_17h47_50.png" src="../_images/2020-07-05_17h47_50.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>各値を入力　→　<span class="guilabel">Save changes</span> をクリック</p>
+<p>作成したアカウントのパスワードを設定します。ここで設定したパスワードは初期パスワードです。このアカウントで初めてログインするとき、本パスワードに変更します。</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 50%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>項目</p></td>
+<td><p>入力値</p></td>
+<td><p>備考</p></td>
+</tr>
+<tr class="row-even"><td><p>Password</p></td>
+<td><p><a class="reference external" href="mailto:jiro%40passwd">jiro<span>@</span>passwd</a></p></td>
+<td><p>ユーザーの初期パスワード</p></td>
+</tr>
+<tr class="row-odd"><td><p>Password confirmation</p></td>
+<td><p><a class="reference external" href="mailto:jiro%40passwd">jiro<span>@</span>passwd</a></p></td>
+<td><p>“Password” と同じ値を入力</p></td>
+</tr>
+</tbody>
+</table></div>
+<a class="reference internal image-reference" href="../_images/2020-07-05_17h50_03.png"><img alt="../_images/2020-07-05_17h50_03.png" src="../_images/2020-07-05_17h50_03.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>画面をスクロール　→　 <span class="guilabel">Save changes</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_17h50_55.png"><img alt="../_images/2020-07-05_17h50_55.png" src="../_images/2020-07-05_17h50_55.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>“User was successfully updated.” のメッセージを確認　→　アカウントの作成終了</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_17h51_07.png"><img alt="../_images/2020-07-05_17h51_07.png" src="../_images/2020-07-05_17h51_07.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div>
+<div class="section" id="user-no-sakusei-signin-test">
+<span id="id3"></span><h2>サインインテスト<a class="headerlink" href="#user-no-sakusei-signin-test" title="Permalink to this headline">¶</a></h2>
+<p>作成したアカウントで GitLab サーバーにサインインできるかテストします。</p>
+<div class="section" id="user-no-sakusei-login-test-user">
+<span id="id4"></span><h3>ユーザー自身が作成したアカウント<a class="headerlink" href="#user-no-sakusei-login-test-user" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>次の値を入力　→　<span class="guilabel">Sign in</span> をクリック</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 50%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>項目</p></td>
+<td><p>入力値</p></td>
+<td><p>備考</p></td>
+</tr>
+<tr class="row-even"><td><p>Username or email</p></td>
+<td><p>taro</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Password</p></td>
+<td><p><a class="reference external" href="mailto:taro%40password">taro<span>@</span>password</a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h03_30.png"><img alt="../_images/2020-07-05_18h03_30.png" src="../_images/2020-07-05_18h03_30.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>サインイン終了</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h04_04.png"><img alt="../_images/2020-07-05_18h04_04.png" src="../_images/2020-07-05_18h04_04.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="user-no-sakusei-login-test-kanri-sya">
+<span id="id5"></span><h3>管理者が作成したアカウント<a class="headerlink" href="#user-no-sakusei-login-test-kanri-sya" title="Permalink to this headline">¶</a></h3>
+<p>管理者が作成したアカウントの場合、次の順序で作業を行います。</p>
+<ul class="simple">
+<li><p>本パスワードの設定</p></li>
+<li><p>ログインテスト</p></li>
+</ul>
+<ol class="arabic">
+<li><p>次の値を入力　→　<span class="guilabel">Sign in</span> をクリック</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 50%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>項目</p></td>
+<td><p>入力値</p></td>
+<td><p>備考</p></td>
+</tr>
+<tr class="row-even"><td><p>Username or email</p></td>
+<td><p>jiro</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Password</p></td>
+<td><p><a class="reference external" href="mailto:jiro%40passwd">jiro<span>@</span>passwd</a></p></td>
+<td><p>初期パスワード</p></td>
+</tr>
+</tbody>
+</table></div>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h06_48.png"><img alt="../_images/2020-07-05_18h06_48.png" src="../_images/2020-07-05_18h06_48.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>次の値を入力　→　<span class="guilabel">Set new password</span> をクリック</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 50%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>項目</p></td>
+<td><p>入力値</p></td>
+<td><p>備考</p></td>
+</tr>
+<tr class="row-even"><td><p>Current password</p></td>
+<td><p><a class="reference external" href="mailto:jiro%40passwd">jiro<span>@</span>passwd</a></p></td>
+<td><p>仮パスワード</p></td>
+</tr>
+<tr class="row-odd"><td><p>New password</p></td>
+<td><p><a class="reference external" href="mailto:jiro%40password">jiro<span>@</span>password</a></p></td>
+<td><p>本パスワード</p></td>
+</tr>
+<tr class="row-even"><td><p>Password confirmation</p></td>
+<td><p><a class="reference external" href="mailto:jiro%40password">jiro<span>@</span>password</a></p></td>
+<td><p>“New password” と同じ値</p></td>
+</tr>
+</tbody>
+</table></div>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h07_18.png"><img alt="../_images/2020-07-05_18h07_18.png" src="../_images/2020-07-05_18h07_18.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>“Password successfully changed” の表示を確認</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h07_28.png"><img alt="../_images/2020-07-05_18h07_28.png" src="../_images/2020-07-05_18h07_28.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>次の値を入力　→　<span class="guilabel">Sign in</span> をクリック</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 50%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>項目</p></td>
+<td><p>入力値</p></td>
+<td><p>備考</p></td>
+</tr>
+<tr class="row-even"><td><p>Username or email</p></td>
+<td><p>jiro</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Password</p></td>
+<td><p><a class="reference external" href="mailto:jiro%40password">jiro<span>@</span>password</a></p></td>
+<td><p>本パスワード</p></td>
+</tr>
+</tbody>
+</table></div>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h07_43.png"><img alt="../_images/2020-07-05_18h07_43.png" src="../_images/2020-07-05_18h07_43.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>サインイン終了</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h07_51.png"><img alt="../_images/2020-07-05_18h07_51.png" src="../_images/2020-07-05_18h07_51.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../group-no-sakusei/group-no-sakusei.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">グループの作成とメンバーの追加</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../kankyo-kochiku/kankyo-kochiku.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">環境構築</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, y_mrok
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">ユーザーアカウントの作成</a><ul>
+<li><a class="reference internal" href="#user-no-sakusei-user-ga-sakusei">ユーザー自身が作成</a></li>
+<li><a class="reference internal" href="#root">管理者（ root ）が作成</a></li>
+<li><a class="reference internal" href="#user-no-sakusei-signin-test">サインインテスト</a><ul>
+<li><a class="reference internal" href="#user-no-sakusei-login-test-user">ユーザー自身が作成したアカウント</a></li>
+<li><a class="reference internal" href="#user-no-sakusei-login-test-kanri-sya">管理者が作成したアカウント</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

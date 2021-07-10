@@ -1,0 +1,423 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="プロジェクトの作成" href="../project-no-sakusei/project-no-sakusei.html" /><link rel="prev" title="ユーザーアカウントの作成" href="../user-no-sakusei/user-no-sakusei.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>グループの作成とメンバーの追加 - Learning GitLab CE 2021/07/10 更新 documentation</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Learning GitLab CE 2021/07/10 更新　 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">Learning GitLab CE 2021/07/10 更新　 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kankyo-kochiku/kankyo-kochiku.html">環境構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-no-sakusei/user-no-sakusei.html">ユーザーアカウントの作成</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">グループの作成とメンバーの追加</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-no-sakusei/project-no-sakusei.html">プロジェクトの作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-client/git-client.html">Git クライアント</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../repository/repository.html">リポジトリ</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-kihon.html">基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-clone.html">クローン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-commit.html">コミット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-push.html">プッシュ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-pull.html">プル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-pushfailed.html">プッシュに失敗する原因と対応</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-pullfailed.html">プルに失敗する原因と対応</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../branch/branch.html">ブランチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commit/commit.html">コミット</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../teams/teams.html">グループで GitLab を使う</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case1.html">Case #1 ： 同じプロジェクト × レビューなし</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case2.html">Case #2 ： 同じプロジェクト × レビューあり</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case3.html">Case #3 ： 異なるプロジェクト × レビューあり</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sonota/sonota.html">その他</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/avatar.html">アバターの変更方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/gitignore.html">ステージングエリアから除外するファイルの指定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/commit-message.html">コミットメッセージ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/readme.html">“README.md” ファイル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/slack.html">Slack に通知を飛ばす</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/changelog.html">改版履歴</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="group-no-sakusei">
+<span id="id1"></span><h1>グループの作成とメンバーの追加<a class="headerlink" href="#group-no-sakusei" title="Permalink to this headline">¶</a></h1>
+<p>グループを作成したアカウントが、そのグループの Owner （持ち主　＝　管理者）になります。 Owner は他のアカウントをグループのメンバーに追加できます。</p>
+<p>今回はアカウント taro がグループ staff を作成し、 jiro をメンバーに追加します。</p>
+<div class="line-block">
+<div class="line">● <a class="reference internal" href="#group-no-sakusei-group-no-sakusei"><span class="std std-ref">グループの作成</span></a></div>
+<div class="line">　・ <a class="reference internal" href="#group-no-sakusei-visibility-level"><span class="std std-ref">Visibility level</span></a></div>
+<div class="line">● <a class="reference internal" href="#group-no-sakusei-member-no-tsuika"><span class="std std-ref">メンバーの追加</span></a></div>
+<div class="line">　・ <a class="reference internal" href="#group-no-sakusei-member-no-tsuika-role-permission"><span class="std std-ref">role permission</span></a></div>
+<div class="line">● <a class="reference internal" href="#group-no-sakusei-sonota"><span class="std std-ref">その他</span></a></div>
+</div>
+<div class="section" id="group-no-sakusei-group-no-sakusei">
+<span id="id2"></span><h2>グループの作成<a class="headerlink" href="#group-no-sakusei-group-no-sakusei" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>GitLab サーバーにアカウント taro でログイン</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h29_56.png"><img alt="../_images/2020-07-05_18h29_56.png" src="../_images/2020-07-05_18h29_56.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">Create a group</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h30_10.png"><img alt="../_images/2020-07-05_18h30_10.png" src="../_images/2020-07-05_18h30_10.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>次の値を入力　→　<span class="guilabel">Create group</span> をクリック</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 50%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>項目</p></td>
+<td><p>入力値／選択値</p></td>
+<td><p>備考</p></td>
+</tr>
+<tr class="row-even"><td><p>Group name</p></td>
+<td><p>staff</p></td>
+<td><p>グループ名</p></td>
+</tr>
+<tr class="row-odd"><td><p>Group URL</p></td>
+<td><p>staff</p></td>
+<td><p>“Group name” の値が自動的に入ります</p></td>
+</tr>
+<tr class="row-even"><td><p>Group description (optional)</p></td>
+<td><p>staff group</p></td>
+<td><p>グループの説明</p></td>
+</tr>
+<tr class="row-odd"><td><p>Visibility level</p></td>
+<td><p>Internal</p></td>
+<td><p><a class="reference internal" href="#group-no-sakusei-visibility-level"><span class="std std-ref">Visibility level</span></a> を参照</p></td>
+</tr>
+</tbody>
+</table></div>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h32_06.png"><img alt="../_images/2020-07-05_18h32_06.png" src="../_images/2020-07-05_18h32_06.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h32_16.png"><img alt="../_images/2020-07-05_18h32_16.png" src="../_images/2020-07-05_18h32_16.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>“Group ‘staff’ was successfully created.” のメッセージを確認　→　グループの作成終了</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h33_39.png"><img alt="../_images/2020-07-05_18h33_39.png" src="../_images/2020-07-05_18h33_39.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+<div class="section" id="visibility-level">
+<span id="group-no-sakusei-visibility-level"></span><h3>Visibility level<a class="headerlink" href="#visibility-level" title="Permalink to this headline">¶</a></h3>
+<p>グループ自体やグループに属するプロジェクトの公開レベルを設定します。</p>
+<dl class="simple">
+<dt>Private</dt><dd><p>グループのメンバーだけに公開されます。</p>
+</dd>
+<dt>Internal</dt><dd><p>GitLab サーバーにログインしているユーザーに公開されます。</p>
+</dd>
+<dt>Public</dt><dd><p>誰にでも公開されます。</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div>
+</div>
+<div class="section" id="group-no-sakusei-member-no-tsuika">
+<span id="id3"></span><h2>メンバーの追加<a class="headerlink" href="#group-no-sakusei-member-no-tsuika" title="Permalink to this headline">¶</a></h2>
+<p>作成したグループ staff のメンバーにアカウント jiro を追加します。</p>
+<ol class="arabic">
+<li><p><span class="guilabel">Members</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h47_31.png"><img alt="../_images/2020-07-05_18h47_31.png" src="../_images/2020-07-05_18h47_31.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>メンバー追加の画面に遷移</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h47_52.png"><img alt="../_images/2020-07-05_18h47_52.png" src="../_images/2020-07-05_18h47_52.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>次の値を入力　→　<span class="guilabel">Invite</span> をクリック</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 50%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>項目</p></td>
+<td><p>入力値／選択値</p></td>
+<td><p>備考</p></td>
+</tr>
+<tr class="row-even"><td><p>GitLab member or Email address</p></td>
+<td><p>staff jiro</p></td>
+<td><p>フィールドをクリックしたら表示されるプルダウンリストから選択</p></td>
+</tr>
+<tr class="row-odd"><td><p>Choose a role permission</p></td>
+<td><p>Maintainer</p></td>
+<td><p><a class="reference internal" href="#group-no-sakusei-member-no-tsuika-role-permission"><span class="std std-ref">role permission</span></a> を参照</p></td>
+</tr>
+</tbody>
+</table></div>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h51_39.png"><img alt="../_images/2020-07-05_18h51_39.png" src="../_images/2020-07-05_18h51_39.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>グループにメンバーの追加が終了</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_18h51_58.png"><img alt="../_images/2020-07-05_18h51_58.png" src="../_images/2020-07-05_18h51_58.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+<div class="section" id="role-permission">
+<span id="group-no-sakusei-member-no-tsuika-role-permission"></span><h3>role permission<a class="headerlink" href="#role-permission" title="Permalink to this headline">¶</a></h3>
+<p>グループのメンバーの role （役割、権限）を設定します。上位の role は下位の role ができることを含みます。</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 8%"/>
+<col style="width: 15%"/>
+<col style="width: 77%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>level</p></td>
+<td><p>role</p></td>
+<td><p>（ざっくりとした）できること</p></td>
+</tr>
+<tr class="row-even"><td><p>低</p></td>
+<td><p>Guest</p></td>
+<td><p>閲覧だけ</p></td>
+</tr>
+<tr class="row-odd"><td><p>↑</p></td>
+<td><p>Reporter</p></td>
+<td><p>ソースコードが取得できる</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Developer</p></td>
+<td><p>ブランチを使った開発ができる（開発者）</p></td>
+</tr>
+<tr class="row-odd"><td><p>↓</p></td>
+<td><p>Maintainer</p></td>
+<td><p>プロジェクやメンバーの管理ができる（プロジェクト管理者）</p></td>
+</tr>
+<tr class="row-even"><td><p>高</p></td>
+<td><p>Admin</p></td>
+<td><p>なんでもできる（システム管理者）</p></td>
+</tr>
+</tbody>
+</table></div>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div>
+</div>
+<div class="section" id="group-no-sakusei-sonota">
+<span id="id4"></span><h2>その他<a class="headerlink" href="#group-no-sakusei-sonota" title="Permalink to this headline">¶</a></h2>
+<p>最終的にもう 1 名のアカウントを作成し、グループ staff に追加しました。</p>
+<a class="reference internal image-reference" href="../_images/2020-07-05_19h33_33.png"><img alt="../_images/2020-07-05_19h33_33.png" src="../_images/2020-07-05_19h33_33.png" style="width: 665.6px; height: 427.05px;"/></a>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../project-no-sakusei/project-no-sakusei.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">プロジェクトの作成</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../user-no-sakusei/user-no-sakusei.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">ユーザーアカウントの作成</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, y_mrok
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">グループの作成とメンバーの追加</a><ul>
+<li><a class="reference internal" href="#group-no-sakusei-group-no-sakusei">グループの作成</a><ul>
+<li><a class="reference internal" href="#visibility-level">Visibility level</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#group-no-sakusei-member-no-tsuika">メンバーの追加</a><ul>
+<li><a class="reference internal" href="#role-permission">role permission</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#group-no-sakusei-sonota">その他</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

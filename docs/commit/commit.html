@@ -1,0 +1,821 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="グループで GitLab を使う" href="../teams/teams.html" /><link rel="prev" title="ブランチ" href="../branch/branch.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>コミット - Learning GitLab CE 2021/07/10 更新 documentation</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Learning GitLab CE 2021/07/10 更新　 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">Learning GitLab CE 2021/07/10 更新　 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kankyo-kochiku/kankyo-kochiku.html">環境構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-no-sakusei/user-no-sakusei.html">ユーザーアカウントの作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../group-no-sakusei/group-no-sakusei.html">グループの作成とメンバーの追加</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-no-sakusei/project-no-sakusei.html">プロジェクトの作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-client/git-client.html">Git クライアント</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../repository/repository.html">リポジトリ</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-kihon.html">基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-clone.html">クローン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-commit.html">コミット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-push.html">プッシュ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-pull.html">プル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-pushfailed.html">プッシュに失敗する原因と対応</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../repository/repository-pullfailed.html">プルに失敗する原因と対応</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../branch/branch.html">ブランチ</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">コミット</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../teams/teams.html">グループで GitLab を使う</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case1.html">Case #1 ： 同じプロジェクト × レビューなし</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case2.html">Case #2 ： 同じプロジェクト × レビューあり</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case3.html">Case #3 ： 異なるプロジェクト × レビューあり</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sonota/sonota.html">その他</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/avatar.html">アバターの変更方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/gitignore.html">ステージングエリアから除外するファイルの指定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/commit-message.html">コミットメッセージ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/readme.html">“README.md” ファイル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/slack.html">Slack に通知を飛ばす</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/changelog.html">改版履歴</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="commit">
+<span id="id1"></span><h1>コミット<a class="headerlink" href="#commit" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">● <a class="reference internal" href="#commit-sabun"><span class="std std-ref">差分確認</span></a></div>
+<div class="line">● <a class="reference internal" href="#commit-old-branch"><span class="std std-ref">過去のコミットから作業のやり直し</span></a></div>
+<div class="line">● <a class="reference internal" href="#commit-revert"><span class="std std-ref">リバート（過去のコミットを打ち消す）</span></a></div>
+<div class="line">　・ <a class="reference internal" href="#commit-revert-no-conflict"><span class="std std-ref">コンフリクトなし</span></a></div>
+<div class="line">　・ <a class="reference internal" href="#commit-revert-conflict"><span class="std std-ref">コンフリクトあり</span></a></div>
+<div class="line">● <a class="reference internal" href="#commit-cherrypick"><span class="std std-ref">チェリーピック（他のブランチのコミットを取り込む）</span></a></div>
+<div class="line">　・ <a class="reference internal" href="#commit-cherrypick-no-conflict"><span class="std std-ref">コンフリクトなし</span></a></div>
+<div class="line">　・ <a class="reference internal" href="#commit-cherrypick-conflict"><span class="std std-ref">コンフリクトあり</span></a></div>
+<div class="line">● <a class="reference internal" href="#commit-amend"><span class="std std-ref">最後のコミットメッセージの修正</span></a></div>
+<div class="line">● <a class="reference internal" href="#commit-tag"><span class="std std-ref">コミットにタグを付ける／外す</span></a></div>
+<div class="line">　・ <a class="reference internal" href="#commit-tag-tsukeru"><span class="std std-ref">タグを付ける</span></a></div>
+<div class="line">　・ <a class="reference internal" href="#commit-tag-hazusu"><span class="std std-ref">タグを外す</span></a></div>
+<div class="line">　・ <a class="reference internal" href="#commit-tag-push"><span class="std std-ref">タグをプッシュ</span></a></div>
+</div>
+<div class="section" id="commit-sabun">
+<span id="id2"></span><h2>差分確認<a class="headerlink" href="#commit-sabun" title="Permalink to this headline">¶</a></h2>
+<p>コミットを 2 箇所選択すると、コミット間の差分をファイル単位で確認できます。</p>
+<a class="reference internal image-reference" href="../_images/2020-08-09_23h09_31.png"><img alt="../_images/2020-08-09_23h09_31.png" src="../_images/2020-08-09_23h09_31.png" style="width: 665.6px; height: 473.2px;"/></a>
+<p>抽出されたファイルを選択すると、ファイル内の差異を表示します。</p>
+<a class="reference internal image-reference" href="../_images/2020-08-09_23h21_09.png"><img alt="../_images/2020-08-09_23h21_09.png" src="../_images/2020-08-09_23h21_09.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div>
+<div class="section" id="commit-old-branch">
+<span id="id3"></span><h2>過去のコミットから作業のやり直し<a class="headerlink" href="#commit-old-branch" title="Permalink to this headline">¶</a></h2>
+<p>過去に戻って作業をやり直したいときは、過去のコミットから新規ブランチを作成します。作成した新規ブランチで作業します。</p>
+<ol class="arabic">
+<li><p>戻りたいコミットをダブルクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-10_09h54_19.png"><img alt="../_images/2020-08-10_09h54_19.png" src="../_images/2020-08-10_09h54_19.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">OK</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-10_09h55_03.png"><img alt="../_images/2020-08-10_09h55_03.png" src="../_images/2020-08-10_09h55_03.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HEAD</span></code> がダブルクリックしたコミットに表示されたことを確認</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>1 つ前のステップのメッセージで表示されたようにこの <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> はどのブランチにも属していません。</p>
+</div>
+<a class="reference internal image-reference" href="../_images/2020-08-10_09h55_25.png"><img alt="../_images/2020-08-10_09h55_25.png" src="../_images/2020-08-10_09h55_25.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">ブランチ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-10_09h56_27.png"><img alt="../_images/2020-08-10_09h56_27.png" src="../_images/2020-08-10_09h56_27.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">新規ブランチ</span> にブランチ名を入力　→　<span class="guilabel">ブランチを作成</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-10_09h57_18.png"><img alt="../_images/2020-08-10_09h57_18.png" src="../_images/2020-08-10_09h57_18.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>新しいブランチの作成終了</p>
+<p>新しく作成した <code class="docutils literal notranslate"><span class="pre">edit</span></code> ブランチは元になったコミット以降の変更は反映されていません（＝　過去に戻ったのと同じ状態）。</p>
+<a class="reference internal image-reference" href="../_images/2020-08-10_09h57_53.png"><img alt="../_images/2020-08-10_09h57_53.png" src="../_images/2020-08-10_09h57_53.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">edit</span></code> ブランチで必要な作業が終了したら <code class="docutils literal notranslate"><span class="pre">master</span></code> ブランチに <a class="reference internal" href="../branch/branch.html#branch-sourcetree-merge"><span class="std std-ref">マージ</span></a> します。下図は <code class="docutils literal notranslate"><span class="pre">edit</span></code> ブランチで 1 回コミットしたあとに <code class="docutils literal notranslate"><span class="pre">master</span></code> ブランチにマージした状態です。</p>
+<a class="reference internal image-reference" href="../_images/2020-08-10_11h52_35.png"><img alt="../_images/2020-08-10_11h52_35.png" src="../_images/2020-08-10_11h52_35.png" style="width: 665.6px; height: 473.2px;"/></a>
+</div>
+<div class="section" id="commit-revert">
+<span id="id4"></span><h2>リバート（過去のコミットを打ち消す）<a class="headerlink" href="#commit-revert" title="Permalink to this headline">¶</a></h2>
+<p>特定のコミット内容と逆のコミット内容を作り出すことでコミットを打ち消します。</p>
+<div class="section" id="commit-revert-no-conflict">
+<span id="id5"></span><h3>コンフリクトなし<a class="headerlink" href="#commit-revert-no-conflict" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">打ち消し前の状態です。コミット内容は次のとおりです。</div>
+<div class="line">・ <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ファイルの更新</div>
+<div class="line">・ <code class="file docutils literal notranslate"><span class="pre">otoiawase.rst</span></code> ファイルの追加</div>
+</div>
+<a class="reference internal image-reference" href="../_images/2020-08-10_23h08_52.png"><img alt="../_images/2020-08-10_23h08_52.png" src="../_images/2020-08-10_23h08_52.png" style="width: 665.6px; height: 473.2px;"/></a>
+<a class="reference internal image-reference" href="../_images/2020-08-10_23h09_07.png"><img alt="../_images/2020-08-10_23h09_07.png" src="../_images/2020-08-10_23h09_07.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+<ol class="arabic">
+<li><p>打ち消し対象のコミットを右クリック　→　<span class="guilabel">このコミットを打ち消し…</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-10_23h09_37.png"><img alt="../_images/2020-08-10_23h09_37.png" src="../_images/2020-08-10_23h09_37.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">はい</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-10_23h09_53.png"><img alt="../_images/2020-08-10_23h09_53.png" src="../_images/2020-08-10_23h09_53.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>打ち消し中</p>
+<a class="reference internal image-reference" href="../_images/2020-08-10_23h10_09.png"><img alt="../_images/2020-08-10_23h10_09.png" src="../_images/2020-08-10_23h10_09.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>打ち消し終了</p>
+<a class="reference internal image-reference" href="../_images/2020-08-10_23h10_57.png"><img alt="../_images/2020-08-10_23h10_57.png" src="../_images/2020-08-10_23h10_57.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+<div class="line-block">
+<div class="line">打ち消し後の状態です。次の内容のコミットが追加されました。</div>
+<div class="line">・ <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ファイルの修正</div>
+<div class="line">・ <code class="file docutils literal notranslate"><span class="pre">otoiawase.rst</span></code> ファイルの削除</div>
+</div>
+<a class="reference internal image-reference" href="../_images/2020-08-10_23h12_26.png"><img alt="../_images/2020-08-10_23h12_26.png" src="../_images/2020-08-10_23h12_26.png" style="width: 665.6px; height: 473.2px;"/></a>
+<a class="reference internal image-reference" href="../_images/2020-08-10_23h12_54.png"><img alt="../_images/2020-08-10_23h12_54.png" src="../_images/2020-08-10_23h12_54.png" style="width: 665.6px; height: 473.2px;"/></a>
+<p>この状態でプッシュすると、リモートリポジトリでもコミットが打ち消されます。</p>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div>
+<div class="section" id="commit-revert-conflict">
+<span id="id6"></span><h3>コンフリクトあり<a class="headerlink" href="#commit-revert-conflict" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">打ち消し前の状態です。コミット内容は次のとおりです。</div>
+<div class="line">・ <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ファイルの更新</div>
+</div>
+<a class="reference internal image-reference" href="../_images/2020-08-11_13h39_51.png"><img alt="../_images/2020-08-11_13h39_51.png" src="../_images/2020-08-11_13h39_51.png" style="width: 665.6px; height: 473.2px;"/></a>
+<a class="reference internal image-reference" href="../_images/2020-08-11_13h40_06.png"><img alt="../_images/2020-08-11_13h40_06.png" src="../_images/2020-08-11_13h40_06.png" style="width: 665.6px; height: 444.6px;"/></a>
+<p>今回は打ち消し対象が他のコミットの変更との関係でコンフリクトが発生します。</p>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+<ol class="arabic">
+<li><p>打ち消し対象のコミットを右クリック　→　<span class="guilabel">このコミットを打ち消し…</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h10_28.png"><img alt="../_images/2020-08-11_14h10_28.png" src="../_images/2020-08-11_14h10_28.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">はい</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h10_41.png"><img alt="../_images/2020-08-11_14h10_41.png" src="../_images/2020-08-11_14h10_41.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>打ち消し中</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h10_56.png"><img alt="../_images/2020-08-11_14h10_56.png" src="../_images/2020-08-11_14h10_56.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コンフリクト発生　→　<span class="guilabel">閉じる</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h11_08.png"><img alt="../_images/2020-08-11_14h11_08.png" src="../_images/2020-08-11_14h11_08.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>打ち消し終了</p>
+<p>コンフリクトが発生したため、リバート後の内容でコミットは作成されませんでした。</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h11_55.png"><img alt="../_images/2020-08-11_14h11_55.png" src="../_images/2020-08-11_14h11_55.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コンフリクトが発生した <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ファイルを開く　→　コンフリクトが発生した箇所を確認</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h18_36.png"><img alt="../_images/2020-08-11_14h18_36.png" src="../_images/2020-08-11_14h18_36.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>選択肢の中から適切な動作を選択（今回は <span class="guilabel">入力側の変更を取り込む</span> を選択）</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h18_44.png"><img alt="../_images/2020-08-11_14h18_44.png" src="../_images/2020-08-11_14h18_44.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>必要ならこのタイミングで修正　→　ファイルを保存</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h19_35.png"><img alt="../_images/2020-08-11_14h19_35.png" src="../_images/2020-08-11_14h19_35.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ファイルをステージングエリアに登録</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h19_56.png"><img alt="../_images/2020-08-11_14h19_56.png" src="../_images/2020-08-11_14h19_56.png" style="width: 665.6px; height: 473.2px;"/></a>
+<p>↓</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h20_27.png"><img alt="../_images/2020-08-11_14h20_27.png" src="../_images/2020-08-11_14h20_27.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h20_52.png"><img alt="../_images/2020-08-11_14h20_52.png" src="../_images/2020-08-11_14h20_52.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コミットのコメントを入力　→　<span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h22_09.png"><img alt="../_images/2020-08-11_14h22_09.png" src="../_images/2020-08-11_14h22_09.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>終了</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_14h22_29.png"><img alt="../_images/2020-08-11_14h22_29.png" src="../_images/2020-08-11_14h22_29.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+<p>この状態でプッシュすると、リモートリポジトリでもコミットが打ち消されます。</p>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</div>
+</div>
+<div class="section" id="commit-cherrypick">
+<span id="id7"></span><h2>チェリーピック（他のブランチのコミットを取り込む）<a class="headerlink" href="#commit-cherrypick" title="Permalink to this headline">¶</a></h2>
+<p>他のブランチのコミットを現在のブランチに取り込みます。チェリーピック後も取込み元のコミットはそのままです。今回は <code class="docutils literal notranslate"><span class="pre">master</span></code> ブランチのコミットを <code class="docutils literal notranslate"><span class="pre">edit</span></code> ブランチに取り込みます。</p>
+<div class="section" id="commit-cherrypick-no-conflict">
+<span id="id8"></span><h3>コンフリクトなし<a class="headerlink" href="#commit-cherrypick-no-conflict" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>編集対象が <code class="docutils literal notranslate"><span class="pre">edit</span></code> ブランチであることを確認</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_18h14_50.png"><img alt="../_images/2020-08-12_18h14_50.png" src="../_images/2020-08-12_18h14_50.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">master</span></code> ブランチから取り込むコミットを右クリック　→　<span class="guilabel">チェリーピック</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_18h15_41.png"><img alt="../_images/2020-08-12_18h15_41.png" src="../_images/2020-08-12_18h15_41.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">OK</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_18h16_27.png"><img alt="../_images/2020-08-12_18h16_27.png" src="../_images/2020-08-12_18h16_27.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+<p>【英文　→　和訳】</p>
+<ul>
+<li><p>Cherry picking lets you select a commit and apply only those changes to your current branch.</p>
+<blockquote>
+<div><p>チェリーピッキングでは、コミットを選択して現在のブランチに変更点のみを適用することができます。</p>
+</div></blockquote>
+</li>
+<li><p>Commit immediately upon successful merge.</p>
+<blockquote>
+<div><p>マージに成功したらすぐにコミットします。</p>
+</div></blockquote>
+</li>
+<li><p>Include commit IDs in the merge commit message.</p>
+<blockquote>
+<div><p>マージコミットメッセージにコミット ID を含めます。</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>チェリーピック終了</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">master</span></code> ブランチのコミットの取込みが終了しました。コミットメッセージは <code class="docutils literal notranslate"><span class="pre">master</span></code> ブランチの値をそのまま使用しています。</p>
+</div></blockquote>
+<a class="reference internal image-reference" href="../_images/2020-08-12_18h26_05.png"><img alt="../_images/2020-08-12_18h26_05.png" src="../_images/2020-08-12_18h26_05.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="commit-cherrypick-conflict">
+<span id="id9"></span><h3>コンフリクトあり<a class="headerlink" href="#commit-cherrypick-conflict" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>編集対象が <code class="docutils literal notranslate"><span class="pre">edit</span></code> ブランチであることを確認</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h14_18.png"><img alt="../_images/2020-08-12_19h14_18.png" src="../_images/2020-08-12_19h14_18.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">master</span></code> ブランチから取り込むコミットを右クリック　→　<span class="guilabel">チェリーピック</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h14_38.png"><img alt="../_images/2020-08-12_19h14_38.png" src="../_images/2020-08-12_19h14_38.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">OK</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h14_51.png"><img alt="../_images/2020-08-12_19h14_51.png" src="../_images/2020-08-12_19h14_51.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+<p>【英文　→　和訳】</p>
+<ul>
+<li><p>Cherry picking lets you select a commit and apply only those changes to your current branch.</p>
+<blockquote>
+<div><p>チェリーピッキングでは、コミットを選択して現在のブランチに変更点のみを適用することができます。</p>
+</div></blockquote>
+</li>
+<li><p>Commit immediately upon successful merge.</p>
+<blockquote>
+<div><p>マージに成功したらすぐにコミットします。</p>
+</div></blockquote>
+</li>
+<li><p>Include commit IDs in the merge commit message.</p>
+<blockquote>
+<div><p>マージコミットメッセージにコミット ID を含めます。</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コンフリクト発生　→　<span class="guilabel">閉じる (C)</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h15_06.png"><img alt="../_images/2020-08-12_19h15_06.png" src="../_images/2020-08-12_19h15_06.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>チェリーピック終了</p>
+<p>コンフリクトが発生したため、チェリーピック後の内容でコミットは作成されませんでした。</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h15_22.png"><img alt="../_images/2020-08-12_19h15_22.png" src="../_images/2020-08-12_19h15_22.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コンフリクトが発生した <code class="file docutils literal notranslate"><span class="pre">staff.rst</span></code> ファイルを開く　→　コンフリクトが発生した箇所を確認</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h15_53.png"><img alt="../_images/2020-08-12_19h15_53.png" src="../_images/2020-08-12_19h15_53.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>選択肢の中から適切な動作を選択（今回は <span class="guilabel">両方の変更を取り込む</span> を選択）</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h16_05.png"><img alt="../_images/2020-08-12_19h16_05.png" src="../_images/2020-08-12_19h16_05.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>必要ならこのタイミングで修正　→　ファイルを保存</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h16_26.png"><img alt="../_images/2020-08-12_19h16_26.png" src="../_images/2020-08-12_19h16_26.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> ファイルをステージングエリアに登録</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h16_43.png"><img alt="../_images/2020-08-12_19h16_43.png" src="../_images/2020-08-12_19h16_43.png" style="width: 665.6px; height: 473.2px;"/></a>
+<p>↓</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h16_59.png"><img alt="../_images/2020-08-12_19h16_59.png" src="../_images/2020-08-12_19h16_59.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h17_07.png"><img alt="../_images/2020-08-12_19h17_07.png" src="../_images/2020-08-12_19h17_07.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コミットのコメントを入力　→　<span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h18_14.png"><img alt="../_images/2020-08-12_19h18_14.png" src="../_images/2020-08-12_19h18_14.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>終了</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h18_30.png"><img alt="../_images/2020-08-12_19h18_30.png" src="../_images/2020-08-12_19h18_30.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コミットの履歴に追加されていることを確認</p>
+<a class="reference internal image-reference" href="../_images/2020-08-12_19h19_03.png"><img alt="../_images/2020-08-12_19h19_03.png" src="../_images/2020-08-12_19h19_03.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="commit-amend">
+<span id="id10"></span><h2>最後のコミットメッセージの修正<a class="headerlink" href="#commit-amend" title="Permalink to this headline">¶</a></h2>
+<p>プッシュ前であれば最後（直近）のコミットメッセージを修正できます。</p>
+<ol class="arabic">
+<li><p><span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_20h45_40.png"><img alt="../_images/2020-08-11_20h45_40.png" src="../_images/2020-08-11_20h45_40.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">オプションのコミット</span> のプルダウンリスト内から <span class="guilabel">最後のコミットを上書き (Amend)</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_20h47_18.png"><img alt="../_images/2020-08-11_20h47_18.png" src="../_images/2020-08-11_20h47_18.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">はい</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_20h47_54.png"><img alt="../_images/2020-08-11_20h47_54.png" src="../_images/2020-08-11_20h47_54.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コミットメッセージ欄に最後（直近）のコミットメッセージが表示されたことを確認</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_20h48_49.png"><img alt="../_images/2020-08-11_20h48_49.png" src="../_images/2020-08-11_20h48_49.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>コミットメッセージを修正　→　<span class="guilabel">コミット</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_20h49_57.png"><img alt="../_images/2020-08-11_20h49_57.png" src="../_images/2020-08-11_20h49_57.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>最後（直近）のコミットメッセージの修正終了</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_20h50_37.png"><img alt="../_images/2020-08-11_20h50_37.png" src="../_images/2020-08-11_20h50_37.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>修正結果の確認</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_20h51_26.png"><img alt="../_images/2020-08-11_20h51_26.png" src="../_images/2020-08-11_20h51_26.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="commit-tag">
+<span id="id11"></span><h2>コミットにタグを付ける／外す<a class="headerlink" href="#commit-tag" title="Permalink to this headline">¶</a></h2>
+<p>コミットに「リリース版」や「 v1.0 」等のタグを付けられます。付けたタグは外せます。</p>
+<div class="section" id="commit-tag-tsukeru">
+<span id="id12"></span><h3>タグを付ける<a class="headerlink" href="#commit-tag-tsukeru" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>タグを付けるコミットを右クリック　→　<span class="guilabel">タグ…</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_22h57_21.png"><img alt="../_images/2020-08-11_22h57_21.png" src="../_images/2020-08-11_22h57_21.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">タグ名</span> にタグの名前を入力　→　<span class="guilabel">タグを追加</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_22h58_39.png"><img alt="../_images/2020-08-11_22h58_39.png" src="../_images/2020-08-11_22h58_39.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>タグ付け終了</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_22h58_57.png"><img alt="../_images/2020-08-11_22h58_57.png" src="../_images/2020-08-11_22h58_57.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+<p>左側の <span class="guilabel">タグ</span> に設定したタグの一覧が表示されます。下図は 5 個のタグを設定した結果です。</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h07_40.png"><img alt="../_images/2020-08-11_23h07_40.png" src="../_images/2020-08-11_23h07_40.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>タグの名前を <code class="docutils literal notranslate"><span class="pre">/</span></code> で前半分、後ろ半分に区切ると、上図のように前半分でグルーピングできます。</p>
+</div>
+</div>
+<div class="section" id="commit-tag-hazusu">
+<span id="id13"></span><h3>タグを外す<a class="headerlink" href="#commit-tag-hazusu" title="Permalink to this headline">¶</a></h3>
+<p>今回は “リリース版/v1.1” のタグを削除します。</p>
+<ol class="arabic">
+<li><p><span class="guilabel">タグ</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h14_36.png"><img alt="../_images/2020-08-11_23h14_36.png" src="../_images/2020-08-11_23h14_36.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">タグを削除</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h15_25.png"><img alt="../_images/2020-08-11_23h15_25.png" src="../_images/2020-08-11_23h15_25.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">削除するタグ</span> をプルダウン　→　削除するタグを選択</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h16_06.png"><img alt="../_images/2020-08-11_23h16_06.png" src="../_images/2020-08-11_23h16_06.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">タグを削除</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h16_38.png"><img alt="../_images/2020-08-11_23h16_38.png" src="../_images/2020-08-11_23h16_38.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>タグの削除終了</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h16_55.png"><img alt="../_images/2020-08-11_23h16_55.png" src="../_images/2020-08-11_23h16_55.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="commit-tag-push">
+<span id="id14"></span><h3>タグをプッシュ<a class="headerlink" href="#commit-tag-push" title="Permalink to this headline">¶</a></h3>
+<p>ブランチをプッシュしてもタグはプッシュされません。設定したタグごとにプッシュしなければなりません。</p>
+<div class="section" id="gitlab">
+<h4>GitLab で現状のタグを確認<a class="headerlink" href="#gitlab" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic">
+<li><p>プロジェクト名をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h24_14.png"><img alt="../_images/2020-08-11_23h24_14.png" src="../_images/2020-08-11_23h24_14.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">Repository</span> 内の <span class="guilabel">Tags</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h24_38.png"><img alt="../_images/2020-08-11_23h24_38.png" src="../_images/2020-08-11_23h24_38.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>現在のタグを表示</p>
+<p>まだタグが 1 つもプッシュされていません。</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h26_21.png"><img alt="../_images/2020-08-11_23h26_21.png" src="../_images/2020-08-11_23h26_21.png" style="width: 665.6px; height: 427.05px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="sourcetree">
+<h4>SourceTree<a class="headerlink" href="#sourcetree" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic">
+<li><p>プッシュするタグを右クリック　→　<span class="guilabel">プッシュ先</span> をクリック　→　<span class="guilabel">origin</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h27_56.png"><img alt="../_images/2020-08-11_23h27_56.png" src="../_images/2020-08-11_23h27_56.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p><span class="guilabel">OK</span> をクリック</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h29_19.png"><img alt="../_images/2020-08-11_23h29_19.png" src="../_images/2020-08-11_23h29_19.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>タグをプッシュ中</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h29_32.png"><img alt="../_images/2020-08-11_23h29_32.png" src="../_images/2020-08-11_23h29_32.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+<li><p>プッシュ終了</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h30_02.png"><img alt="../_images/2020-08-11_23h30_02.png" src="../_images/2020-08-11_23h30_02.png" style="width: 665.6px; height: 473.2px;"/></a>
+<div class="line-block">
+<div class="line"><br/></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="id15">
+<h4>GitLab でプッシュしたタグを確認<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>プッシュしたタグが表示されていることを確認できます。</p>
+<a class="reference internal image-reference" href="../_images/2020-08-11_23h31_24.png"><img alt="../_images/2020-08-11_23h31_24.png" src="../_images/2020-08-11_23h31_24.png" style="width: 665.6px; height: 427.05px;"/></a>
+</div>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../teams/teams.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">グループで GitLab を使う</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../branch/branch.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">ブランチ</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, y_mrok
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">コミット</a><ul>
+<li><a class="reference internal" href="#commit-sabun">差分確認</a></li>
+<li><a class="reference internal" href="#commit-old-branch">過去のコミットから作業のやり直し</a></li>
+<li><a class="reference internal" href="#commit-revert">リバート（過去のコミットを打ち消す）</a><ul>
+<li><a class="reference internal" href="#commit-revert-no-conflict">コンフリクトなし</a></li>
+<li><a class="reference internal" href="#commit-revert-conflict">コンフリクトあり</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#commit-cherrypick">チェリーピック（他のブランチのコミットを取り込む）</a><ul>
+<li><a class="reference internal" href="#commit-cherrypick-no-conflict">コンフリクトなし</a></li>
+<li><a class="reference internal" href="#commit-cherrypick-conflict">コンフリクトあり</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#commit-amend">最後のコミットメッセージの修正</a></li>
+<li><a class="reference internal" href="#commit-tag">コミットにタグを付ける／外す</a><ul>
+<li><a class="reference internal" href="#commit-tag-tsukeru">タグを付ける</a></li>
+<li><a class="reference internal" href="#commit-tag-hazusu">タグを外す</a></li>
+<li><a class="reference internal" href="#commit-tag-push">タグをプッシュ</a><ul>
+<li><a class="reference internal" href="#gitlab">GitLab で現状のタグを確認</a></li>
+<li><a class="reference internal" href="#sourcetree">SourceTree</a></li>
+<li><a class="reference internal" href="#id15">GitLab でプッシュしたタグを確認</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

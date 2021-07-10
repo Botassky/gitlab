@@ -1,0 +1,424 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="クローン" href="repository-clone.html" /><link rel="prev" title="リポジトリ" href="repository.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>基本 - Learning GitLab CE 2021/07/10 更新 documentation</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Learning GitLab CE 2021/07/10 更新　 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">Learning GitLab CE 2021/07/10 更新　 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kankyo-kochiku/kankyo-kochiku.html">環境構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-no-sakusei/user-no-sakusei.html">ユーザーアカウントの作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../group-no-sakusei/group-no-sakusei.html">グループの作成とメンバーの追加</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project-no-sakusei/project-no-sakusei.html">プロジェクトの作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git-client/git-client.html">Git クライアント</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="repository.html">リポジトリ</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">基本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository-clone.html">クローン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository-commit.html">コミット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository-push.html">プッシュ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository-pull.html">プル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository-pushfailed.html">プッシュに失敗する原因と対応</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository-pullfailed.html">プルに失敗する原因と対応</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../branch/branch.html">ブランチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commit/commit.html">コミット</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../teams/teams.html">グループで GitLab を使う</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case1.html">Case #1 ： 同じプロジェクト × レビューなし</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case2.html">Case #2 ： 同じプロジェクト × レビューあり</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../teams/teams-case3.html">Case #3 ： 異なるプロジェクト × レビューあり</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sonota/sonota.html">その他</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/avatar.html">アバターの変更方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/gitignore.html">ステージングエリアから除外するファイルの指定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/commit-message.html">コミットメッセージ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/readme.html">“README.md” ファイル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonota/slack.html">Slack に通知を飛ばす</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/changelog.html">改版履歴</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="repository-kihon">
+<span id="id1"></span><h1>基本<a class="headerlink" href="#repository-kihon" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">● <a class="reference internal" href="#repository-kihon-tango"><span class="std std-ref">単語</span></a></div>
+<div class="line">● <a class="reference internal" href="#repository-kihon-dousa"><span class="std std-ref">基本動作</span></a></div>
+<div class="line">● <a class="reference internal" href="#repository-kihon-branch"><span class="std std-ref">ブランチ</span></a></div>
+</div>
+<div class="section" id="repository-kihon-tango">
+<span id="id2"></span><h2>単語<a class="headerlink" href="#repository-kihon-tango" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>バージョン管理システム</dt><dd><ul class="simple">
+<li><p>ファイル（主にソースファイル）の変更履歴を管理するシステム</p></li>
+<li><p>いつ・誰が・どのファイルを・どの様な操作（追加、変更、削除）をしたのか等々、ファイルに関する各種履歴を管理する</p></li>
+<li><p>同一ファイルの更新を制御し、デグレード（デグレ）や上書きによる更新内容の消失などを防止できる仕組みを持つ</p></li>
+<li><p>変更履歴を使用して、ファイルを過去の状態に戻すことも可能</p></li>
+</ul>
+</dd>
+<dt>Git</dt><dd><ul class="simple">
+<li><p>バージョン管理システムの 1 つ</p></li>
+<li><p>他に Subversion （ SVN ）や CVS, Azure DevOps Server （旧 VSS : Visual SourceSafe / Microsoft ）などがある</p></li>
+</ul>
+</dd>
+<dt>GitLab</dt><dd><ul class="simple">
+<li><p>Git を使用した Web サービス（ホスティングサービス）の 1 つ</p></li>
+<li><p>他に GitHub や BitBucket などがある</p></li>
+<li><p>GitLab は Web サービス以外にオンプレミス版がある</p></li>
+</ul>
+</dd>
+<dt>リポジトリ</dt><dd><ul class="simple">
+<li><p>バージョン管理システムで扱うデータが登録されているエリア</p></li>
+<li><p>バージョン管理システムで管理対象になるファイルや、各種管理情報の集まり</p></li>
+</ul>
+</dd>
+<dt>リモートリポジトリ</dt><dd><ul class="simple">
+<li><p>サーバー上のリポジトリ</p></li>
+<li><p>プロジェクトの結果を集約したリポジトリ</p></li>
+</ul>
+</dd>
+<dt>ローカルリポジトリ</dt><dd><ul class="simple">
+<li><p>各作業者のパソコン上のリポジトリ</p></li>
+<li><p>このリポジトリ内のファイルを操作する</p></li>
+<li><p>リモートリポジトリが破損したとき、ローカルリポジトリで復旧が可能</p></li>
+</ul>
+</dd>
+<dt>ブランチ</dt><dd><ul class="simple">
+<li><p>1 つのリポジトリ内に 1 つ以上のブランチが存在する</p></li>
+<li><p>リポジトリ内のファイルに関する各種履歴（いつ・誰が・どのファイルを・どの様な操作（追加、変更、削除）をしたのか等）を記録したもの</p></li>
+<li><p>コミットするたびに履歴は延びていく</p></li>
+<li><p>ブランチの情報を元にファイルを過去のある時点の状態に戻すことができる</p></li>
+</ul>
+</dd>
+<dt>Git クライアント（ Git クライアントソフト）</dt><dd><ul class="simple">
+<li><p>リポジトリを操作するためのソフトウェア（ツール）</p></li>
+<li><p>Windows 上で使用できる GUI ツールとして GitHub Desktop や Sourcetree, TortoiseGit などがある</p></li>
+<li><p>Visual Source Code （ VS Code ） など Git クライアントの機能を内蔵したツールもある</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="repository-kihon-dousa">
+<span id="id3"></span><h2>基本動作<a class="headerlink" href="#repository-kihon-dousa" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>基本サイクル<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<img alt="../_images/pic1.png" src="../_images/pic1.png"/>
+<ol class="arabic simple">
+<li><p>サーバー上のリモートリポジトリをクローンし、クライアントにローカルリポジトリを作成　／　リモートリポジトリとローカルリポジトリの差異をリモートリポジトリからローカルリポジトリにプル</p></li>
+<li><p>ローカルリポジトリ内のファイルを編集（追加・削除を含む）する</p></li>
+<li><p>ローカルリポジトリ内で編集したファイルをコミット</p></li>
+<li><p>ローカルリポジトリ内でコミットしたファイルをリモートリポジトリにプッシュ</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h3>クローン・プル・コミット・プッシュ<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>クローン</dt><dd><p>作業を開始したときローカルには何もありません。作業ができるようよう最初にリモートリポジトリの全内容を複製し、ローカルリポジトリを作成・書き込む作業が必要です。この作業を「クローン」と呼びます。</p>
+</dd>
+<dt>プル</dt><dd><p>通常、作業は複数人で進めるため、ランダムなタイミングでリモートリポジトリは更新されます。 結果、自分が知らないファイル（追加・削除）や編集内容が蓄積され、リモートリポジトリとローカルリポジトリに差異が発生します。この差違を解消するため、時々リモートリポジトリの内容をローカルリポジトへ取り込む作業が必要です。この作業を「プル」と呼びます。</p>
+</dd>
+<dt>コミット</dt><dd><p>ローカルリポジトリ内のファイルの編集内容（追加・削除を含む）を確定する作業です。その時点のスナップショットを取ったり、コミット時のコメントなどのメタデータを保存します。</p>
+</dd>
+<dt>プッシュ</dt><dd><p>コミット後のローカルリポジトリの内容をリモートリポジトリに反映します。この動作を「プッシュ」と呼びます。反映対象はコミットしたファイルです。</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="repository-kihon-branch">
+<span id="id6"></span><h2>ブランチ<a class="headerlink" href="#repository-kihon-branch" title="Permalink to this headline">¶</a></h2>
+<p>「ブランチ」はリポジトリ内に存在し、履歴を記録しているエリアです。デフォルトで用意されるブランチ、自分で作成するブランチなどがあります。</p>
+<div class="section" id="repository-kihon-branch-local">
+<span id="id7"></span><h3>ブランチの種類<a class="headerlink" href="#repository-kihon-branch-local" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="master">
+<h4>master ブランチ（リモートリポジトリ / ローカルリポジトリ）<a class="headerlink" href="#master" title="Permalink to this headline">¶</a></h4>
+<p>最初のコミットを行うと <code class="docutils literal notranslate"><span class="pre">master</span></code> ブランチが作成されます（ “C1” は 1 回目のコミット（ commit ）の意味です）。</p>
+<a class="reference internal image-reference" href="../_images/pic2.png"><img alt="../_images/pic2.png" src="../_images/pic2.png" style="width: 484.0px; height: 153.0px;"/></a>
+<p>コミットするたびにブランチ内の履歴は延びていきます。コミットを 3 回行った後の状態です。</p>
+<a class="reference internal image-reference" href="../_images/pic3.png"><img alt="../_images/pic3.png" src="../_images/pic3.png" style="width: 484.0px; height: 153.0px;"/></a>
+<p>ブランチ内で現在指している履歴の場所を <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> と呼びます。デフォルトはブランチの先頭の履歴を指しています。 <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> を組み合わせたイメージです。</p>
+<a class="reference internal image-reference" href="../_images/pic4.png"><img alt="../_images/pic4.png" src="../_images/pic4.png" style="width: 484.0px; height: 179.0px;"/></a>
+<p><code class="docutils literal notranslate"><span class="pre">HEAD</span></code> が指す位置を変更すると、各ファイルは <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> の位置が示す内容に変更されます。</p>
+</div>
+<div class="section" id="repository-kihon-branch-remote">
+<span id="id8"></span><h4>ローカルリポジトリ内のリモートリポジトリのブランチのクローン<a class="headerlink" href="#repository-kihon-branch-remote" title="Permalink to this headline">¶</a></h4>
+<p>リモートリポジトリも内部に <code class="docutils literal notranslate"><span class="pre">master</span></code> ブランチ（リモートブランチ）を持ちます。リモートリポジトリをクローンしたとき、このブランチもクローンされてローカルリポジトリに格納されます。この格納されたブランチが <code class="docutils literal notranslate"><span class="pre">origin/master</span></code> ブランチです。 <code class="docutils literal notranslate"><span class="pre">origin</span></code> はクローン元のリモートリポジトリを指します。ブランチ内の履歴の場所を指す <code class="docutils literal notranslate"><span class="pre">origin/HEAD</span></code> もあります。</p>
+<p><code class="docutils literal notranslate"><span class="pre">origin/master</span></code> ブランチはリモートブランチの状態を維持し、プッシュ・プル・フェッチを実行したときに状態を更新（リモートブランチと同期）します。このように <code class="docutils literal notranslate"><span class="pre">origin/master</span></code> ブランチはリモートリブランチの状態を追いかけるので「リモート追跡ブランチ」または「追跡ブランチ」と呼びます。プル・プッシュ・フェッチはリモート追跡ブランチ経由で行われ、その結果リモート追跡ブランチはリモートブランチと同期します。</p>
+</div>
+<div class="section" id="id9">
+<h4>まとめ<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 50%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>ブランチ</p></td>
+<td><p>存在する場所</p></td>
+<td><p>説明</p></td>
+</tr>
+<tr class="row-even"><td><p>ローカルブランチ</p></td>
+<td><p>ローカルリポジトリ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">master</span></code> ブランチ</p></td>
+</tr>
+<tr class="row-odd"><td><p>リモート追跡ブランチ</p></td>
+<td><p>ローカルリポジトリ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">origin/master</span></code> ブランチ、リモートブランチの内容を追跡している</p></td>
+</tr>
+<tr class="row-even"><td><p>リモートブランチ</p></td>
+<td><p>リモートリポジトリ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">master</span></code> ブランチ</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="section" id="repository-kihon-branch-commit">
+<span id="id10"></span><h3>コミット<a class="headerlink" href="#repository-kihon-branch-commit" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h4>行っていること<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>現時点の状態をリポジトリに反映させる動作を「コミット」と呼びます。コミットは次の情報をリポジトリに保存します。</p>
+<ul class="simple">
+<li><p>その時点のローカルリポジトリのスナップショット</p></li>
+<li><p>コミット時のコメントなどのメタ情報</p></li>
+</ul>
+<p>等々</p>
+</div>
+<div class="section" id="id12">
+<h4>コミットの流れ（イメージ）<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<p>編集した <code class="file docutils literal notranslate"><span class="pre">abc.txt</span></code> ファイルをコミットする流れ（イメージ）です。</p>
+<ol class="arabic">
+<li><p>コミット前</p>
+<a class="reference internal image-reference" href="../_images/pic5.png"><img alt="../_images/pic5.png" src="../_images/pic5.png" style="width: 568.0px; height: 533.0px;"/></a>
+</li>
+<li><p>編集した <code class="file docutils literal notranslate"><span class="pre">abc.txt</span></code> ファイルをステージングエリアに登録</p>
+<p>ステージングエリアに登録したファイルがコミットの対象になります。ステージングエリアがあることで、リポジトリに登録しなくても良いファイルを除外できます。</p>
+<a class="reference internal image-reference" href="../_images/pic6.png"><img alt="../_images/pic6.png" src="../_images/pic6.png" style="width: 568.0px; height: 533.0px;"/></a>
+</li>
+<li><p>ステージングエリアの <strong>ファイル全体のコメント</strong> を付けてコミット</p>
+<p>コミット後の状態です。 <code class="docutils literal notranslate"><span class="pre">master</span></code> ブランチ内の履歴が延び、 <code class="docutils literal notranslate"><span class="pre">head</span></code> は先端の履歴を指し直します。ファイルの保管場所内のファイルは、編集済みファイルに更新されます。</p>
+<a class="reference internal image-reference" href="../_images/pic7.png"><img alt="../_images/pic7.png" src="../_images/pic7.png" style="width: 568.0px; height: 533.0px;"/></a>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>プッシュ<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>ローカルリポジトリの内容をリモートリポジトリに反映します。反映されるのはコミットしたファイルです。プッシュできるのは「 <strong>リモートブランチの履歴がリモート追跡ブランチの履歴よりも新しくない</strong> とき」です。先に他の人がプッシュ済みのときは、リモート追跡ブランチよりリモートブランチの履歴が新しいためプッシュに失敗します。
+これは他の人の修正を壊さない（上書きして消さない）ための安全装置として働きます。</p>
+<p>プッシュに失敗したときはプルを実行し、リモートリポジトリの変更内容をローカルリポジトリ取り込み、その後「コミット　→　プッシュ」を行います。</p>
+</div>
+<div class="section" id="id14">
+<h3>プル<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>リモートリポジトリとローカルリポジトリの差異をローカルリポジトリ内に反映します。反映対象がファイルの場合、ローカルリポジトリ内のコミット済みのファイルに反映されます。未コミットのファイルがが反映対象になった場合、プルに失敗します。こらは自分の修正を壊さない（上書きして消されない）ための安全装置として働きます。</p>
+<p>プルに失敗したときは、ローカルリポジトリ内の対象ファイルをコミットするとか、削除または別のフォルダーへ移動します。その後もう一度プルをを行います。</p>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="repository-clone.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">クローン</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="repository.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">リポジトリ</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, y_mrok
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">基本</a><ul>
+<li><a class="reference internal" href="#repository-kihon-tango">単語</a></li>
+<li><a class="reference internal" href="#repository-kihon-dousa">基本動作</a><ul>
+<li><a class="reference internal" href="#id4">基本サイクル</a></li>
+<li><a class="reference internal" href="#id5">クローン・プル・コミット・プッシュ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#repository-kihon-branch">ブランチ</a><ul>
+<li><a class="reference internal" href="#repository-kihon-branch-local">ブランチの種類</a><ul>
+<li><a class="reference internal" href="#master">master ブランチ（リモートリポジトリ / ローカルリポジトリ）</a></li>
+<li><a class="reference internal" href="#repository-kihon-branch-remote">ローカルリポジトリ内のリモートリポジトリのブランチのクローン</a></li>
+<li><a class="reference internal" href="#id9">まとめ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#repository-kihon-branch-commit">コミット</a><ul>
+<li><a class="reference internal" href="#id11">行っていること</a></li>
+<li><a class="reference internal" href="#id12">コミットの流れ（イメージ）</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13">プッシュ</a></li>
+<li><a class="reference internal" href="#id14">プル</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>
