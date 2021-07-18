@@ -1,0 +1,3 @@
+whereis git
+git --version
+sudo apt -y install git

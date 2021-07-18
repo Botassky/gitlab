@@ -77,4 +77,5 @@ Git を使った作業の流れです。運用方法に差異があれど、大�
    ./commit/commit
    ./teams/teams
    ./sonota/sonota
+   ./vscode/vscode
    ./changelog

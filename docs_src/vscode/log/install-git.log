@@ -1,0 +1,44 @@
+piyo@vmpc:~$ whereis git
+git:
+piyo@vmpc:~$ git --version
+
+コマンド 'git' が見つかりません。次の方法でインストールできます:
+
+sudo apt install git
+
+piyo@vmpc:~$ sudo apt -y install git
+[sudo] piyo のパスワード: 
+パッケージリストを読み込んでいます... 完了
+依存関係ツリーを作成しています                
+状態情報を読み取っています... 完了
+以下のパッケージが自動でインストールされましたが、もう必要とされていません:
+  libfprint-2-tod1 libllvm10
+これを削除するには 'sudo apt autoremove' を利用してください。
+以下の追加パッケージがインストールされます:
+  git-man liberror-perl
+提案パッケージ:
+  git-daemon-run | git-daemon-sysvinit git-doc git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn
+以下のパッケージが新たにインストールされます:
+  git git-man liberror-perl
+アップグレード: 0 個、新規インストール: 3 個、削除: 0 個、保留: 0 個。
+5,468 kB のアーカイブを取得する必要があります。
+この操作後に追加で 38.4 MB のディスク容量が消費されます。
+取得:1 http://jp.archive.ubuntu.com/ubuntu focal/main amd64 liberror-perl all 0.17029-1 [26.5 kB]
+取得:2 http://jp.archive.ubuntu.com/ubuntu focal-updates/main amd64 git-man all 1:2.25.1-1ubuntu3.1 [884 kB]
+取得:3 http://jp.archive.ubuntu.com/ubuntu focal-updates/main amd64 git amd64 1:2.25.1-1ubuntu3.1 [4,557 kB]
+5,468 kB を 0秒 で取得しました (14.9 MB/s)
+以前に未選択のパッケージ liberror-perl を選択しています。
+(データベースを読み込んでいます ... 現在 197146 個のファイルとディレクトリがインストールされています。)
+.../liberror-perl_0.17029-1_all.deb を展開する準備をしています ...
+liberror-perl (0.17029-1) を展開しています...
+以前に未選択のパッケージ git-man を選択しています。
+.../git-man_1%3a2.25.1-1ubuntu3.1_all.deb を展開する準備をしています ...
+git-man (1:2.25.1-1ubuntu3.1) を展開しています...
+以前に未選択のパッケージ git を選択しています。
+.../git_1%3a2.25.1-1ubuntu3.1_amd64.deb を展開する準備をしています ...
+git (1:2.25.1-1ubuntu3.1) を展開しています...
+liberror-perl (0.17029-1) を設定しています ...
+git-man (1:2.25.1-1ubuntu3.1) を設定しています ...
+git (1:2.25.1-1ubuntu3.1) を設定しています ...
+man-db (2.9.1-1) のトリガを処理しています ...
+piyo@vmpc:~$ 

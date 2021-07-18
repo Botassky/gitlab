@@ -4,8 +4,15 @@
 
 table.docutils th.head{
     background-color: lightblue;
+    text-align: center;
+    vretial-align: middle;
 }
 
 table.docutils tr.row-odd{
     background-color: aliceblue;
+}
+
+table.docutils tr{
+    text-align: left;
+    vretial-align: middle;
 }
