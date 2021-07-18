@@ -5,6 +5,13 @@ Visual Studio Code
 ##################################################
 Ubuntu 20.04 LTS にインストールした Visual Studio Code (VS Code) から GitLab サーバーを操作します。
 
+.. note::
+
+   以下のバージョンで動作を確認しました。
+
+   - GitLab Community Edition 14.0.5
+   - Visual Studio Code 1.58.2
+
 【操作手順】
 
 #. :ref:`vscode-intall-git`
